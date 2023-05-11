@@ -58,10 +58,11 @@ const Header = ({ activeHeading }) => {
         <div className="hidden 800px:h-[50px] 800px:my-[20px] 800px:flex items-center justify-between">
           <div>
             <Link to="/">
-              <img
+              {/* <img
                 src="https://shopo.quomodothemes.website/assets/images/logo.svg"
                 alt=""
-              />
+              /> */}
+              <h1>Kiana shop</h1>
             </Link>
           </div>
           {/* search box */}
@@ -302,7 +303,7 @@ const Header = ({ activeHeading }) => {
               <div className={`${styles.button} ml-4 !rounded-[4px]`}>
                 <Link to="/shop-create">
                   <h1 className="text-[#fff] flex items-center">
-                    Become Seller <IoIosArrowForward className="ml-1" />
+                   Trở thành người bán hàng <IoIosArrowForward className="ml-1" />
                   </h1>
                 </Link>
               </div>

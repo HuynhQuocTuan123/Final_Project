@@ -191,28 +191,28 @@ export const navItems = [
   export const categoriesData = [
     {
       id: 1,
-      title: "Computers and Laptops",
+      title: "Laptop-máy tính-linh kiện",
       subTitle: "",
       image_Url:
         "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
     },
     {
       id: 2,
-      title: "cosmetics and body care",
+      title: "Làm đẹp và sức khỏe",
       subTitle: "",
       image_Url:
         "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
     },
     {
       id: 3,
-      title: "Accesories",
+      title: "Đồng hồ - trang sức",
       subTitle: "",
       image_Url:
         "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
     },
     {
       id: 4,
-      title: "Cloths",
+      title: "Phụ kiện và thời trang",
       subTitle: "",
       image_Url:
         "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
@@ -233,13 +233,13 @@ export const navItems = [
     },
     {
       id: 7,
-      title: "Pet Care",
+      title: "Đồ trưng bày",
       subTitle: "",
       image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
     },
     {
       id: 8,
-      title: "Mobile and Tablets",
+      title: "Điện thoại - máy tính bảng",
       subTitle: "",
       image_Url:
         "https://st-troy.mncdn.com/mnresize/1500/1500/Content/media/ProductImg/original/mpwp3tua-apple-iphone-14-256gb-mavi-mpwp3tua-637986832343472449.jpg",
@@ -593,21 +593,21 @@ export const navItems = [
   
   export const footerProductLinks = [
     {
-      name: "About us",
+      name: "Giới thiệu",
       link: "/about"
     },
     {
-      name: "Careers",
+      name: "Tuyển dụng",
       link: "/carrers"
     },
+    // {
+    //   name: "Store Locations",
+    // },
     {
-      name: "Store Locations",
+      name: "Blog",
     },
     {
-      name: "Our Blog",
-    },
-    {
-      name: "Reviews",
+      name: "Đánh giá",
     },
   ];
   
