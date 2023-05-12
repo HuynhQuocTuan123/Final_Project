@@ -10,7 +10,7 @@ const DropDown = ({ categoriesData, setDropDown }) => {
     window.location.reload();
   };
   return (
-    <div className="pb-4 w-[270px] bg-[#fff] absolute z-30 rounded-b-md shadow-sm">
+    <div className="pb-4 w-[270px] bg-[#fff] absolute z-30 rounded-b-md shadow-sm ">
       {categoriesData &&
         categoriesData.map((i, index) => (
           <div
@@ -21,15 +21,16 @@ const DropDown = ({ categoriesData, setDropDown }) => {
             <img
               src={i.image_Url}
               style={{
-                width: "25px",
-                height: "25px",
+                width: "35px",
+                height: "35px",
                 objectFit: "contain",
                 marginLeft: "10px",
                 userSelect: "none",
+               
               }}
               alt=""
             />
-            <h3 className="m-3 cursor-pointer select-none">{i.title}</h3>
+            <h3 className="m-3 cursor-pointer select-none ">{i.title}</h3>
           </div>
         ))}
     </div>

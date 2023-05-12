@@ -1,19 +1,19 @@
 // navigation Data
 export const navItems = [
     {
-      title: "Home",
+      title: "Trang chủ",
       url: "/",
     },
     {
-      title: "Best Selling",
+      title: "Bán chạy",
       url: "/best-selling",
     },
     {
-      title: "Products",
+      title: "Sản phẩm",
       url: "/products",
     },
     {
-      title: "Events",
+      title: "Sự kiện",
       url: "/events",
     },
     {
@@ -219,7 +219,7 @@ export const navItems = [
     },
     {
       id: 5,
-      title: "Shoes",
+      title: "Đồ cũ",
       subTitle: "",
       image_Url:
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
@@ -229,7 +229,7 @@ export const navItems = [
       title: "Gifts",
       subTitle: "",
       image_Url:
-        "https://securecdn.pymnts.com/wp-content/uploads/2014/11/Gifts-Photo-700x489.jpg",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1683880836/honkai-impact-3rd-sakura-flame-soul-flame-sakitama-1-8-scale-figure-750x750w_qgmbjr.jpg",
     },
     {
       id: 7,
@@ -251,6 +251,7 @@ export const navItems = [
       image_Url:
         "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
     },
+  
     {
       id: 10,
       title: "Others",
