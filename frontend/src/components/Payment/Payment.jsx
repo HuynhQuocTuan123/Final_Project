@@ -222,7 +222,7 @@ const PaymentInfo = ({
             ) : null}
           </div>
           <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
-            Pay with Debit/credit card
+          Thanh toán bằng thẻ ghi nợ/thẻ tín dụng:
           </h4>
         </div>
 
@@ -232,7 +232,7 @@ const PaymentInfo = ({
             <form className="w-full" onSubmit={paymentHandler}>
               <div className="w-full flex pb-3">
                 <div className="w-[50%]">
-                  <label className="block pb-2">Name On Card</label>
+                  <label className="block pb-2">Tên khách hàng trên thẻ:</label>
                   <input
                     required
                     placeholder={user && user.name}
@@ -241,7 +241,7 @@ const PaymentInfo = ({
                   />
                 </div>
                 <div className="w-[50%]">
-                  <label className="block pb-2">Exp Date</label>
+                  <label className="block pb-2">Thời gian hết hạn:</label>
                   <CardExpiryElement
                     className={`${styles.input}`}
                     options={{
@@ -266,7 +266,7 @@ const PaymentInfo = ({
 
               <div className="w-full flex pb-3">
                 <div className="w-[50%]">
-                  <label className="block pb-2">Card Number</label>
+                  <label className="block pb-2">Số thẻ:</label>
                   <CardNumberElement
                     className={`${styles.input} !h-[35px] !w-[95%]`}
                     options={{
@@ -333,7 +333,7 @@ const PaymentInfo = ({
             ) : null}
           </div>
           <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
-            Pay with Paypal
+            Thanh toán với Paypal
           </h4>
         </div>
 
@@ -388,7 +388,7 @@ const PaymentInfo = ({
             ) : null}
           </div>
           <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
-            Cash on Delivery
+            Thanh toán khi nhận hàng
           </h4>
         </div>
 
@@ -414,20 +414,21 @@ const CartData = ({ orderData }) => {
   return (
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">subtotal:</h3>
+        <h3 className="text-[16px] font-[400] text-[#000000a4]">Tổng:</h3>
         <h5 className="text-[18px] font-[600]">${orderData?.subTotalPrice}</h5>
       </div>
       <br />
       <div className="flex justify-between">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">shipping:</h3>
+        <h3 className="text-[16px] font-[400] text-[#000000a4]">Phí giao hàng:</h3>
         <h5 className="text-[18px] font-[600]">${shipping}</h5>
       </div>
       <br />
       <div className="flex justify-between border-b pb-3">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">Discount:</h3>
+        <h3 className="text-[16px] font-[400] text-[#000000a4]">Sau khi áp dụng Voucher:</h3>
         <h5 className="text-[18px] font-[600]">{orderData?.discountPrice? "$" + orderData.discountPrice : "-"}</h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">
+      <h3 className="text-[16px] font-[400] text-[#000000a4]">Tổng cộng:</h3>
         ${orderData?.totalPrice}
       </h5>
       <br />

@@ -38,7 +38,7 @@ const Cart = ({ setOpenCart }) => {
                 onClick={() => setOpenCart(false)}
                 />
             </div>
-            <h5>Cart Items is empty!</h5>
+            <h5>Giỏ hàng trống !</h5>
           </div>
         ) : (
           <>
@@ -53,7 +53,7 @@ const Cart = ({ setOpenCart }) => {
               {/* Item length */}
               <div className={`${styles.noramlFlex} p-4`}>
                 <IoBagHandleOutline size={25} />
-                <h5 className="pl-2 text-[20px] font-[500]">{cart && cart.length} items</h5>
+                <h5 className="pl-2 text-[20px] font-[500]">{cart && cart.length} Sản phẩm </h5>
               </div>
 
               {/* cart Single Items */}
@@ -78,7 +78,7 @@ const Cart = ({ setOpenCart }) => {
                   className={`h-[45px] flex items-center justify-center w-[100%] bg-[#e44343] rounded-[5px]`}
                 >
                   <h1 className="text-[#fff] text-[18px] font-[600]">
-                    Checkout Now (USD${totalPrice})
+                    Thanh toán ngay (USD${totalPrice})
                   </h1>
                 </div>
               </Link>
@@ -142,8 +142,9 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
             US${totalPrice}
           </h4>
         </div>
-        <RxCross1
-          className="cursor-pointer"
+        <RxCross1 size={36} 
+        color="#fff"
+          className="cursor-pointer bg-[#d80a0a] border border-[#e4434373] rounded-[50%]"
           onClick={() => removeFromCartHandler(data)}
         />
       </div>

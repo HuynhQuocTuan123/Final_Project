@@ -36,7 +36,7 @@ const Wishlist = ({ setOpenWishlist }) => {
                 onClick={() => setOpenWishlist(false)}
               />
             </div>
-            <h5>Wishlist Items is empty!</h5>
+            <h5>Giỏ hàng yêu thích trống!</h5>
           </div>
         ) : (
           <>
@@ -52,7 +52,7 @@ const Wishlist = ({ setOpenWishlist }) => {
               <div className={`${styles.noramlFlex} p-4`}>
                 <AiOutlineHeart size={25} />
                 <h5 className="pl-2 text-[20px] font-[500]">
-                  {wishlist && wishlist.length} items
+                  {wishlist && wishlist.length} Sản phẩm
                 </h5>
               </div>
 
@@ -79,7 +79,9 @@ const CartSingle = ({ data,removeFromWishlistHandler,addToCartHandler }) => {
   return (
     <div className="border-b p-4">
       <div className="w-full 800px:flex items-center">
-        <RxCross1 className="cursor-pointer 800px:mb-['unset'] 800px:ml-['unset'] mb-2 ml-2"
+        <RxCross1 size={30} 
+        color="#fff"
+        className="cursor-pointer 800px:mb-['unset'] 800px:ml-['unset'] mb-2 ml-2 bg-[#d80a0a] border border-[#e4434373] rounded-[50%]"
         onClick={() => removeFromWishlistHandler(data)}
         />
         <img

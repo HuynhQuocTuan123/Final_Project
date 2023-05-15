@@ -104,7 +104,7 @@ const ProfileContent = ({ active }) => {
             <form onSubmit={handleSubmit} aria-required={true}>
               <div className="w-full 800px:flex block pb-3">
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Full Name</label>
+                  <label className="block pb-2">Họ và tên (Tên người nhận)</label>
                   <input
                     type="text"
                     className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -114,7 +114,7 @@ const ProfileContent = ({ active }) => {
                   />
                 </div>
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Email Address</label>
+                  <label className="block pb-2">Email</label>
                   <input
                     type="text"
                     className={`${styles.input} !w-[95%] mb-1 800px:mb-0`}
@@ -127,18 +127,20 @@ const ProfileContent = ({ active }) => {
 
               <div className="w-full 800px:flex block pb-3">
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Phone Number</label>
+                  <label className="block pb-2">Số điện thoại: (+84)</label>
+                
                   <input
                     type="number"
                     className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
                     required
+                    placeholder="+84"
                     value={phoneNumber}
                     onChange={(e) => setPhoneNumber(e.target.value)}
                   />
                 </div>
 
                 <div className=" w-[100%] 800px:w-[50%]">
-                  <label className="block pb-2">Enter your password</label>
+                  <label className="block pb-2">Nhập mật khẩu để thay đổi thông tin </label>
                   <input
                     type="password"
                     className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -149,9 +151,9 @@ const ProfileContent = ({ active }) => {
                 </div>
               </div>
               <input
-                className={`w-[250px] h-[40px] border border-[#3a24db] text-center text-[#3a24db] rounded-[3px] mt-8 cursor-pointer`}
+                className={`w-[250px] h-[40px] border border-[#fd3e25] text-center text-[#eeeeee] font-bold rounded-[8px] mt-8 bg-[#2374e1] cursor-pointer`}
                 required
-                value="Update"
+                value="Cập nhật"
                 type="submit"
               />
             </form>
@@ -481,7 +483,7 @@ const ChangePassword = () => {
   return (
     <div className="w-full px-5">
       <h1 className="block text-[25px] text-center font-[600] text-[#000000ba] pb-2">
-        Change Password
+        Đổi mật khẩu
       </h1>
       <div className="w-full">
         <form
@@ -490,7 +492,7 @@ const ChangePassword = () => {
           className="flex flex-col items-center"
         >
           <div className=" w-[100%] 800px:w-[50%] mt-5">
-            <label className="block pb-2">Enter your old password</label>
+            <label className="block pb-2">Nhập mật khẩu cũ</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -500,7 +502,7 @@ const ChangePassword = () => {
             />
           </div>
           <div className=" w-[100%] 800px:w-[50%] mt-2">
-            <label className="block pb-2">Enter your new password</label>
+            <label className="block pb-2">Nhật mật khẩu mới</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -510,7 +512,7 @@ const ChangePassword = () => {
             />
           </div>
           <div className=" w-[100%] 800px:w-[50%] mt-2">
-            <label className="block pb-2">Enter your confirm password</label>
+            <label className="block pb-2">Nhập lại mật khẩu mới</label>
             <input
               type="password"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
@@ -533,7 +535,7 @@ const ChangePassword = () => {
 
 const Address = () => {
   const [open, setOpen] = useState(false);
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("VN");
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState();
   const [address1, setAddress1] = useState("");
@@ -544,13 +546,13 @@ const Address = () => {
 
   const addressTypeData = [
     {
-      name: "Default",
+      name: "Mặc định",
     },
     {
-      name: "Home",
+      name: "Nhà, nơi thường trú",
     },
     {
-      name: "Office",
+      name: "Văn phòng, nơi làm việc",
     },
   ];
 
@@ -558,7 +560,7 @@ const Address = () => {
     e.preventDefault();
 
     if (addressType === "" || country === "" || city === "") {
-      toast.error("Please fill all the fields!");
+      toast.error("Vui lòng điền vào tất cả các mục!");
     } else {
       dispatch(
         updatUserAddress(
@@ -598,13 +600,13 @@ const Address = () => {
               />
             </div>
             <h1 className="text-center text-[25px] font-Poppins">
-              Add New Address
+             Thêm địa chỉ
             </h1>
             <div className="w-full">
               <form aria-required onSubmit={handleSubmit} className="w-full">
                 <div className="w-full block p-4">
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Country</label>
+                    <label className="block pb-2">Khu vực:</label>
                     <select
                       name=""
                       id=""
@@ -613,7 +615,7 @@ const Address = () => {
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
                       <option value="" className="block border pb-2">
-                        choose your country
+                        chọn khu vực
                       </option>
                       {Country &&
                         Country.getAllCountries().map((item) => (
@@ -629,7 +631,7 @@ const Address = () => {
                   </div>
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Choose your City</label>
+                    <label className="block pb-2">Thành phố, tỉnh thành:</label>
                     <select
                       name=""
                       id=""
@@ -638,7 +640,7 @@ const Address = () => {
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
                       <option value="" className="block border pb-2">
-                        choose your city
+                        chọn thành phố, tỉnh thành
                       </option>
                       {State &&
                         State.getStatesOfCountry(country).map((item) => (
@@ -654,7 +656,7 @@ const Address = () => {
                   </div>
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Address 1</label>
+                    <label className="block pb-2">Địa chỉ 1 (Điền đầy đủ: số nhà, tên đường, phường, xóm, huyện, xã, phường thành phố)</label>
                     <input
                       type="address"
                       className={`${styles.input}`}
@@ -663,8 +665,8 @@ const Address = () => {
                       onChange={(e) => setAddress1(e.target.value)}
                     />
                   </div>
-                  <div className="w-full pb-2">
-                    <label className="block pb-2">Address 2</label>
+                  {/* <div className="w-full pb-2">
+                    <label className="block pb-2">Địa chỉ dự phòng (Điền đầy đủ: số nhà, tên đường, phường, xóm, huyện, xã, phường thành phố)</label>
                     <input
                       type="address"
                       className={`${styles.input}`}
@@ -672,9 +674,9 @@ const Address = () => {
                       value={address2}
                       onChange={(e) => setAddress2(e.target.value)}
                     />
-                  </div>
+                  </div> */}
 
-                  <div className="w-full pb-2">
+                  {/* <div className="w-full pb-2">
                     <label className="block pb-2">Zip Code</label>
                     <input
                       type="number"
@@ -683,10 +685,10 @@ const Address = () => {
                       value={zipCode}
                       onChange={(e) => setZipCode(e.target.value)}
                     />
-                  </div>
+                  </div> */}
 
                   <div className="w-full pb-2">
-                    <label className="block pb-2">Address Type</label>
+                    <label className="block pb-2">Loại địa chỉ</label>
                     <select
                       name=""
                       id=""
@@ -695,7 +697,7 @@ const Address = () => {
                       className="w-[95%] border h-[40px] rounded-[5px]"
                     >
                       <option value="" className="block border pb-2">
-                        Choose your Address Type
+                       Chọn loại địa chỉ 
                       </option>
                       {addressTypeData &&
                         addressTypeData.map((item) => (
@@ -747,7 +749,7 @@ const Address = () => {
             </div>
             <div className="pl-8 flex items-center">
               <h6 className="text-[12px] 800px:text-[unset]">
-                {item.address1} {item.address2}
+                {item.address1}
               </h6>
             </div>
             <div className="pl-8 flex items-center">
