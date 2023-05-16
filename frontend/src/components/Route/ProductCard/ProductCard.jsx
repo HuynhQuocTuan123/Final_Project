@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import currency from "currency-formatter";
 import {
   AiFillHeart,
   AiFillStar,
@@ -88,16 +89,17 @@ const ProductCard = ({ data,isEvent }) => {
             <div className="flex">
               <h5 className={`${styles.productDiscountPrice}`}>
                 {data.originalPrice === 0
-                  ? data.originalPrice
-                  : data.discountPrice}
-                $
+                  ?  `${currency.format(data.originalPrice , {code:"VND"})}`
+                  :`${currency.format(data.discountPrice , {code:"VND"})}`}
+               
               </h5>
               <h4 className={`${styles.price}`}>
-                {data.originalPrice ? data.originalPrice + " $" : null}
+                {data.originalPrice ? `${currency.format(data.originalPrice , {code:"VND"})}` : null}
+               
               </h4>
             </div>
             <span className="font-[400] text-[17px] text-[#68d284]">
-              {data?.sold_out} sold
+              {data?.sold_out} đã bán
             </span>
           </div>
         </Link>

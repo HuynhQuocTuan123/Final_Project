@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import currency from "currency-formatter";
 import {
   AiFillHeart,
   AiOutlineHeart,
@@ -85,10 +86,9 @@ const ProductDetails = ({ data }) => {
       0
     );
 
-  const avg =  totalRatings / totalReviewsLength || 0;
+  const avg = totalRatings / totalReviewsLength || 0;
 
   const averageRating = avg.toFixed(2);
-
 
   const handleMessageSubmit = async () => {
     if (isAuthenticated) {
@@ -135,7 +135,7 @@ const ProductDetails = ({ data }) => {
                         <img
                           src={`${backend_url}${i}`}
                           alt=""
-                          className="h-[200px] overflow-hidden mr-3 mt-3"
+                          className="h-[115px] overflow-hidden mr-3 mt-3"
                           onClick={() => setSelect(index)}
                         />
                       </div>
@@ -149,35 +149,39 @@ const ProductDetails = ({ data }) => {
               </div>
               <div className="w-full 800px:w-[50%] pt-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
-                <p>{data.description}</p>
+                {/* <p>{data.description}</p> */}
                 <div className="flex pt-3">
-                  <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.discountPrice}$
+                  <h4 className={`${styles.productDiscountPrice} mt-5 !text-3xl font-bol `}>
+                    {`${currency.format(data.discountPrice, { code: "VND" })}`}
                   </h4>
                   <h3 className={`${styles.price}`}>
-                    {data.originalPrice ? data.originalPrice + "$" : null}
+                    {data.originalPrice
+                      ? `${currency.format(data.originalPrice, {
+                          code: "VND",
+                        })}`
+                      : null}
                   </h3>
                 </div>
 
                 <div className="flex items-center mt-12 justify-between pr-3">
-                  <div>
+                  {/* <div>
                     <button
-                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-1 px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={decrementCount}
                     >
                       -
                     </button>
-                    <span className="bg-gray-200 text-gray-800 font-medium px-4 py-[11px]">
+                    <span className="bg-gray-200 text-gray-800 font-medium px-6 py-[11px]">
                       {count}
                     </span>
                     <button
-                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
+                      className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-1 px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
                       onClick={incrementCount}
                     >
                       +
                     </button>
-                  </div>
-                  <div>
+                  </div> */}
+                  {/* <div>
                     {click ? (
                       <AiFillHeart
                         size={30}
@@ -195,40 +199,81 @@ const ProductDetails = ({ data }) => {
                         title="Add to wishlist"
                       />
                     )}
+                  </div> */}
+                  <div className="counter flex items-center text-2xl justify-start">
+                 
+                    <div className="ml-5 shadow-md flex">
+                      <div className="bg-[#0b9780] text-white w-10 flex items-center justify-center rounded-l-lg cursor-pointer"
+                      onClick={decrementCount}>
+                        -
+                      </div>
+                      <div className="w-9 flex items-center justify-center border-[1px] border-[#8a4af3]">
+                      {count}
+                      </div>
+                      <div className="bg-[#0b9780] text-white w-10 flex items-center justify-center rounded-r-lg cursor-pointer"
+                      onClick={incrementCount}>
+                        +
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div
-                  className={`${styles.button} !mt-6 !rounded !h-11 flex items-center`}
-                  onClick={() => addToCartHandler(data._id)}
-                >
-                  <span className="text-white flex items-center">
-                    Add to cart <AiOutlineShoppingCart className="ml-1" />
-                  </span>
-                </div>
                 <div className="flex items-center pt-8">
+                  {" "}
+                  <div
+                    className={`${styles.button} !mt-6 !rounded !h-11 flex items-center mr-7`}
+                    onClick={() => addToCartHandler(data._id)}
+                  >
+                    <span className="text-white flex items-center">
+                      Thêm vào giỏ <AiOutlineShoppingCart className="ml-1" />
+                    </span>
+                  </div>
+                  <div className="!mt-3 !h-11 flex items-center ">
+                    {click ? (
+                      <AiFillHeart
+                        size={40}
+                        className="cursor-pointer"
+                        onClick={() => removeFromWishlistHandler(data)}
+                        color={click ? "red" : "#333"}
+                        title="Xóa khỏi mục yêu thích"
+                      />
+                    ) : (
+                      <AiOutlineHeart
+                        size={40}
+                        className="cursor-pointer"
+                        onClick={() => addToWishlistHandler(data)}
+                        color={click ? "red" : "#333"}
+                        title="Thêm vào mục yêu thích"
+                      />
+                    )}
+                  </div>
+                </div>
+
+                <div className="flex items-center pt-8 p-1">
                   <Link to={`/shop/preview/${data?.shop._id}`}>
                     <img
                       src={`${backend_url}${data?.shop?.avatar}`}
                       alt=""
-                      className="w-[50px] h-[50px] rounded-full mr-2"
+                      className="w-[60px] h-[60px] rounded-full mr-2"
                     />
                   </Link>
                   <div className="pr-8">
                     <Link to={`/shop/preview/${data?.shop._id}`}>
-                      <h3 className={`${styles.shop_name} pb-1 pt-1`}>
+                      <h3
+                        className={`${styles.shop_name} pb-1 pt-1 !text-red-700 !text-xl font-bold`}
+                      >
                         {data.shop.name}
                       </h3>
                     </Link>
-                    <h5 className="pb-3 text-[15px]">
-                      ({averageRating}/5) Ratings
+                    <h5 className="pb-3 text-[18px]">
+                      ({averageRating}/5 ⭐) Đánh giá
                     </h5>
                   </div>
                   <div
-                    className={`${styles.button} bg-[#6443d1] mt-4 !rounded !h-11`}
+                    className={`${styles.button} !bg-[#0030cc] mt-4 !rounded !h-11`}
                     onClick={handleMessageSubmit}
                   >
                     <span className="text-white flex items-center">
-                      Send Message <AiOutlineMessage className="ml-1" />
+                      Gửi tin nhắn <AiOutlineMessage className="ml-1" />
                     </span>
                   </div>
                 </div>
@@ -267,7 +312,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(1)}
           >
-            Product Details
+            Giới thiệu
           </h5>
           {active === 1 ? (
             <div className={`${styles.active_indicator}`} />
@@ -280,7 +325,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(2)}
           >
-            Product Reviews
+            Đánh giá sản phẩm
           </h5>
           {active === 2 ? (
             <div className={`${styles.active_indicator}`} />
@@ -293,7 +338,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(3)}
           >
-            Seller Information
+            Thông tin người bán
           </h5>
           {active === 3 ? (
             <div className={`${styles.active_indicator}`} />
@@ -312,25 +357,26 @@ const ProductDetailsInfo = ({
         <div className="w-full min-h-[40vh] flex flex-col items-center py-3 overflow-y-scroll">
           {data &&
             data.reviews.map((item, index) => (
-              <div className="w-full flex my-2">
+              <div className="w-full flex my-2 bg-[#cccccc70] rounded-lg p-2">
                 <img
                   src={`${backend_url}/${item.user.avatar}`}
                   alt=""
                   className="w-[50px] h-[50px] rounded-full"
                 />
-                <div className="pl-2 ">
+                <div className="pl-2">
                   <div className="w-full flex items-center">
-                    <h1 className="font-[500] mr-3">{item.user.name}</h1>
+                    <h1 className="font-[500] text-xl mr-3">{item.user.name}</h1>
                     <Ratings rating={data?.ratings} />
                   </div>
-                  <p>{item.comment}</p>
+                  <div className="items-center py-3 p-2 ml-2"> <p className="font-[500] text-base">{item.comment}</p></div>
+                 
                 </div>
               </div>
             ))}
 
           <div className="w-full flex justify-center">
             {data && data.reviews.length === 0 && (
-              <h5>No Reviews have for this product!</h5>
+              <h5>Sản phẩm chưa có đánh giá!</h5>
             )}
           </div>
         </div>
@@ -349,7 +395,7 @@ const ProductDetailsInfo = ({
                 <div className="pl-3">
                   <h3 className={`${styles.shop_name}`}>{data.shop.name}</h3>
                   <h5 className="pb-2 text-[15px]">
-                    ({averageRating}/5) Ratings
+                    ({averageRating}/5) đánh giá
                   </h5>
                 </div>
               </div>
@@ -359,28 +405,28 @@ const ProductDetailsInfo = ({
           <div className="w-full 800px:w-[50%] mt-5 800px:mt-0 800px:flex flex-col items-end">
             <div className="text-left">
               <h5 className="font-[600]">
-                Joined on:{" "}
+                Tham gia:{" "}
                 <span className="font-[500]">
                   {data.shop?.createdAt?.slice(0, 10)}
                 </span>
               </h5>
               <h5 className="font-[600] pt-3">
-                Total Products:{" "}
+                Số lượng sản phẩm:{" "}
                 <span className="font-[500]">
                   {products && products.length}
                 </span>
               </h5>
               <h5 className="font-[600] pt-3">
-                Total Reviews:{" "}
+                Số lượng Review:{" "}
                 <span className="font-[500]">{totalReviewsLength}</span>
               </h5>
-              <Link to="/">
+              {/* <Link to="/">
                 <div
                   className={`${styles.button} !rounded-[4px] !h-[39.5px] mt-3`}
                 >
                   <h4 className="text-white">Visit Shop</h4>
                 </div>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
