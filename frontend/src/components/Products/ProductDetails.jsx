@@ -149,7 +149,7 @@ const ProductDetails = ({ data }) => {
               </div>
               <div className="w-full 800px:w-[50%] pt-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
-                {/* <p>{data.description}</p> */}
+                <p>Tag: #<i className="text-[#242e8a] ">{data.tags}</i></p>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice} mt-5 !text-3xl font-bol `}>
                     {`${currency.format(data.discountPrice, { code: "VND" })}`}
@@ -228,7 +228,7 @@ const ProductDetails = ({ data }) => {
                     </span>
                   </div>
                   <div className="!mt-3 !h-11 flex items-center ">
-                    {click ? (
+                    {click ? (<>
                       <AiFillHeart
                         size={40}
                         className="cursor-pointer"
@@ -236,7 +236,9 @@ const ProductDetails = ({ data }) => {
                         color={click ? "red" : "#333"}
                         title="Xóa khỏi mục yêu thích"
                       />
-                    ) : (
+                      <span className="text-xl font-semibold">Đã thích </span>
+                      </>
+                    ) : (<>
                       <AiOutlineHeart
                         size={40}
                         className="cursor-pointer"
@@ -244,6 +246,8 @@ const ProductDetails = ({ data }) => {
                         color={click ? "red" : "#333"}
                         title="Thêm vào mục yêu thích"
                       />
+                      
+                      </>
                     )}
                   </div>
                 </div>

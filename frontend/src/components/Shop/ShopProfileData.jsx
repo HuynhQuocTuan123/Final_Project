@@ -26,34 +26,34 @@ const ShopProfileData = ({ isOwner }) => {
 
   return (
     <div className="w-full">
-      <div className="flex w-full items-center justify-between">
+      <div className="flex w-full items-center justify-between bg-[#b4b4b463] p-3 rounded-xl">
         <div className="w-full flex">
           <div className="flex items-center" onClick={() => setActive(1)}>
             <h5
               className={`font-[600] text-[20px] ${
-                active === 1 ? "text-red-500" : "text-[#333]"
+                active === 1 ? "text-red-500 font-[650]" : "text-[#333]"
               } cursor-pointer pr-[20px]`}
             >
-              Shop Products
+              Sản phẩm
             </h5>
           </div>
           <div className="flex items-center" onClick={() => setActive(2)}>
             <h5
               className={`font-[600] text-[20px] ${
-                active === 2 ? "text-red-500" : "text-[#333]"
+                active === 2 ? "text-red-500 font-[650]" : "text-[#333]"
               } cursor-pointer pr-[20px]`}
             >
-              Running Events
+              Sự kiện của cửa hàng
             </h5>
           </div>
 
           <div className="flex items-center" onClick={() => setActive(3)}>
             <h5
               className={`font-[600] text-[20px] ${
-                active === 3 ? "text-red-500" : "text-[#333]"
+                active === 3 ? "text-red-500 font-[650]" : "text-[#333]"
               } cursor-pointer pr-[20px]`}
             >
-              Shop Reviews
+              Đánh giá của cửa hàng
             </h5>
           </div>
         </div>
@@ -61,8 +61,8 @@ const ShopProfileData = ({ isOwner }) => {
           {isOwner && (
             <div>
               <Link to="/dashboard">
-                <div className={`${styles.button} !rounded-[4px] h-[42px]`}>
-                  <span className="text-[#fff]">Go Dashboard</span>
+                <div className={`${styles.button} !rounded-[8px] h-[42px]`}>
+                  <span className="text-[#fff]">Trang chủ</span>
                 </div>
               </Link>
             </div>
@@ -95,7 +95,7 @@ const ShopProfileData = ({ isOwner }) => {
           </div>
           {events && events.length === 0 && (
             <h5 className="w-full text-center py-5 text-[18px]">
-              No Events have for this shop!
+              Cửa hàng không có sự kiện!
             </h5>
           )}
         </div>
@@ -123,7 +123,7 @@ const ShopProfileData = ({ isOwner }) => {
             ))}
           {allReviews && allReviews.length === 0 && (
             <h5 className="w-full text-center py-5 text-[18px]">
-              No Reviews have for this shop!
+              Chưa có đánh giá cho cửa hàng này!
             </h5>
           )}
         </div>
