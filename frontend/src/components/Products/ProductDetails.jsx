@@ -122,7 +122,7 @@ const ProductDetails = ({ data }) => {
                 <img
                   src={`${backend_url}${data && data.images[select]}`}
                   alt=""
-                  className="w-[80%]"
+                  className="w-[80%] rounded-[8px]"
                 />
                 <div className="w-full flex">
                   {data &&
@@ -150,6 +150,9 @@ const ProductDetails = ({ data }) => {
               <div className="w-full 800px:w-[50%] pt-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
                 <p>Tag: #<i className="text-[#242e8a] ">{data.tags}</i></p>
+                 <span className="font-[500] text-[17px] text-[#f1055c]">
+              {data?.sold_out} đã bán
+            </span>
                 <div className="flex pt-3">
                   <h4 className={`${styles.productDiscountPrice} mt-5 !text-3xl font-bol `}>
                     {`${currency.format(data.discountPrice, { code: "VND" })}`}

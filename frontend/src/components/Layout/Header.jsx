@@ -112,7 +112,7 @@ const Header = ({ activeHeading }) => {
       <div
         className={`${
           active === true ? "shadow-sm fixed top-0 left-0 z-10" : null
-        } transition hidden 800px:flex items-center justify-between w-full bg-[#3321c8] h-[70px]`}
+        } transition hidden 800px:flex items-center justify-between w-full bg-[#efd3c8] h-[70px]`}
       >
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
@@ -150,8 +150,8 @@ const Header = ({ activeHeading }) => {
                 className="relative cursor-pointer mr-[15px]"
                 onClick={() => setOpenWishlist(true)}
               >
-                <AiOutlineHeart size={35} color="rgb(255 255 255 / 83%)" />
-                <span className="absolute right-0 top-0 rounded-full bg-[#fa8171] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <AiOutlineHeart size={35} color="#de650a" />
+                <span className="absolute right-0 top-0 rounded-full bg-[#de650a] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {wishlist && wishlist.length}
                 </span>
               </div>
@@ -164,9 +164,9 @@ const Header = ({ activeHeading }) => {
               >
                 <AiOutlineShoppingCart
                   size={35}
-                  color="rgb(255 255 255 / 83%)"
+                  color="#de650a"
                 />
-                <span className="absolute right-0 top-0 rounded-full bg-[#fa8171] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
+                <span className="absolute right-0 top-0 rounded-full bg-[#de650a] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {cart && cart.length}
                 </span>
               </div>
@@ -184,7 +184,7 @@ const Header = ({ activeHeading }) => {
                   </Link>
                 ) : (
                   <Link to="/login">
-                    <CgProfile size={35} color="rgb(255 255 255 / 83%)" />
+                    <CgProfile size={35} color="#de650a" />
                   </Link>
                 )}
               </div>
