@@ -21,7 +21,7 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 1 ? "text-[crimson]" : "text-[#555]"
+              active === 1 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
             Dashboard
@@ -37,7 +37,7 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 2 ? "text-[crimson]" : "text-[#555]"
+              active === 2 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
             All Orders
@@ -50,10 +50,10 @@ const DashboardSideBar = ({ active }) => {
           <FiPackage size={30} color={`${active === 3 ? "crimson" : "#555"}`} />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 3 ? "text-[crimson]" : "text-[#555]"
+              active === 3 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            All Products
+            Sản phẩm
           </h5>
         </Link>
       </div>
@@ -69,10 +69,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 4 ? "text-[crimson]" : "text-[#555]"
+              active === 4 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            Create Product
+            Thêm sản phẩm
           </h5>
         </Link>
       </div>
@@ -85,10 +85,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 5 ? "text-[crimson]" : "text-[#555]"
+              active === 5 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            All Events
+            Khuyến mãi, sự kiện
           </h5>
         </Link>
       </div>
@@ -101,10 +101,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 6 ? "text-[crimson]" : "text-[#555]"
+              active === 6 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            Create Event
+            Tạo sự kiện
           </h5>
         </Link>
       </div>
@@ -120,10 +120,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 7 ? "text-[crimson]" : "text-[#555]"
+              active === 7 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            Withdraw Money
+           Rút tiền
           </h5>
         </Link>
       </div>
@@ -136,10 +136,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 8 ? "text-[crimson]" : "text-[#555]"
+              active === 8 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            Shop Inbox
+            Tin nhắn
           </h5>
         </Link>
       </div>
@@ -152,10 +152,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 9 ? "text-[crimson]" : "text-[#555]"
+              active === 9 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            Discount Codes
+            Mã giảm giá
           </h5>
         </Link>
       </div>
@@ -168,10 +168,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 10 ? "text-[crimson]" : "text-[#555]"
+              active === 10 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            Refunds
+           Hoàn tiền
           </h5>
         </Link>
       </div>
@@ -184,10 +184,10 @@ const DashboardSideBar = ({ active }) => {
           />
           <h5
             className={`hidden 800px:block pl-2 text-[18px] font-[400] ${
-              active === 11 ? "text-[crimson]" : "text-[#555]"
+              active === 11 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            Settings
+            Sửa thông tin 
           </h5>
         </Link>
       </div>

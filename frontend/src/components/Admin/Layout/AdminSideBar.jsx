@@ -40,7 +40,7 @@ const AdminSideBar = ({ active }) => {
               active === 2 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Orders
+            Đơn hàng
           </h5>
         </Link>
       </div>
@@ -56,7 +56,7 @@ const AdminSideBar = ({ active }) => {
               active === 3 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Sellers
+            Quản lý người bán
           </h5>
         </Link>
       </div>
@@ -72,7 +72,7 @@ const AdminSideBar = ({ active }) => {
               active === 4 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Users
+           Người dùng
           </h5>
         </Link>
       </div>
@@ -88,7 +88,7 @@ const AdminSideBar = ({ active }) => {
               active === 5 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Products
+            Sản phẩm
           </h5>
         </Link>
       </div>
@@ -104,7 +104,7 @@ const AdminSideBar = ({ active }) => {
               active === 6 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            All Events
+            Sự kiện 
           </h5>
         </Link>
       </div>
@@ -125,7 +125,7 @@ const AdminSideBar = ({ active }) => {
               active === 7 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            Withdraw Request
+            Yêu cầu rút tiền
           </h5>
         </Link>
       </div>
@@ -144,7 +144,7 @@ const AdminSideBar = ({ active }) => {
               active === 8 ? "text-[crimson]" : "text-[#555]"
             }`}
           >
-            Settings
+            Sửa thông tin
           </h5>
         </Link>
       </div>

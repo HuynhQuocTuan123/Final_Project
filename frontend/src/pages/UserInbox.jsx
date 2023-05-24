@@ -204,11 +204,12 @@ const UserInbox = () => {
 
   return (
     <div className="w-full">
+     
       {!open && (
         <>
-          <Header />
+        
           <h1 className="text-center text-[30px] py-3 font-Poppins">
-            All Messages
+           Tất cả tin nhắn
           </h1>
           {/* All messages list */}
           {conversations &&
@@ -229,7 +230,8 @@ const UserInbox = () => {
         </>
       )}
 
-      {open && (
+      {/* {open && (
+        
         <SellerInbox
           setOpen={setOpen}
           newMessage={newMessage}
@@ -242,6 +244,43 @@ const UserInbox = () => {
           scrollRef={scrollRef}
           handleImageUpload={handleImageUpload}
         />
+      )} */}
+      {open && (
+        <div className="flex items-start ">
+        <div className="w-[80px] 800px:w-[330px]">
+        {conversations &&
+            conversations.map((item, index) => (
+              <MessageList
+                data={item}
+                key={index}
+                index={index}
+                setOpen={setOpen}
+                setCurrentChat={setCurrentChat}
+                me={user?._id}
+                setUserData={setUserData}
+                userData={userData}
+                online={onlineCheck(item)}
+                setActiveStatus={setActiveStatus}
+              />
+            ))}
+        </div>
+        <div className="w-full">
+        <SellerInbox
+          setOpen={setOpen}
+          newMessage={newMessage}
+          setNewMessage={setNewMessage}
+          sendMessageHandler={sendMessageHandler}
+          messages={messages}
+          sellerId={user._id}
+          userData={userData}
+          activeStatus={activeStatus}
+          scrollRef={scrollRef}
+          handleImageUpload={handleImageUpload}
+        />
+        </div>
+       
+      </div>
+        
       )}
     </div>
   );
@@ -353,7 +392,7 @@ const SellerInbox = ({
       </div>
 
       {/* messages */}
-      <div className="px-3 h-[75vh] py-3 overflow-y-scroll">
+      <div className="px-3 h-[57vh] py-3 overflow-y-scroll">
         {messages &&
           messages.map((item, index) => (
             <div
@@ -372,14 +411,14 @@ const SellerInbox = ({
               {item.images && (
                 <img
                   src={`${backend_url}${item.images}`}
-                  className="w-[300px] h-[300px] object-cover rounded-[10px] ml-2 mb-2"
+                  className="w-[300px] h-[300px] object-cover rounded-[15px] ml-2 mb-2"
                 />
               )}
               {item.text !== "" && (
                 <div>
                   <div
-                    className={`w-max p-2 rounded ${
-                      item.sender === sellerId ? "bg-[#000]" : "bg-[#38c776]"
+                    className={`w-max p-2 rounded-[12px] ${
+                      item.sender === sellerId ? "bg-[#0b2a52]" : "bg-[#38c776]"
                     } text-[#fff] h-min`}
                   >
                     <p>{item.text}</p>
@@ -419,7 +458,7 @@ const SellerInbox = ({
             placeholder="Enter your message..."
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
-            className={`${styles.input}`}
+            className={`${styles.input} pb-4`}
           />
           <input type="submit" value="Send" className="hidden" id="send" />
           <label htmlFor="send">

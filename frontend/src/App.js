@@ -20,7 +20,8 @@ import {
   ShopLoginPage,
   OrderDetailsPage,
   TrackOrderPage,
-  UserInbox,
+  UserInboxPage
+  // UserInbox,
 } from "./routes/Routes.js";
 import {
   ShopDashboardPage,
@@ -60,6 +61,7 @@ import axios from "axios";
 import { server } from "./server";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+
 
 const App = () => {
   const [stripeApikey, setStripeApiKey] = useState("");
@@ -130,7 +132,7 @@ const App = () => {
           path="/inbox"
           element={
             <ProtectedRoute>
-              <UserInbox />
+              <UserInboxPage />
             </ProtectedRoute>
           }
         />

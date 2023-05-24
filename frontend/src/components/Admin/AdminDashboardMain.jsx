@@ -107,7 +107,7 @@ const AdminDashboardMain = () => {
               <h3
                 className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
-                All Sellers
+                Quản lý người bán hàng
               </h3>
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{sellers && sellers.length}</h5>
@@ -126,7 +126,7 @@ const AdminDashboardMain = () => {
               <h3
                 className={`${styles.productTitle} !text-[18px] leading-5 !font-[400] text-[#00000085]`}
               >
-                All Orders
+                Đơn hàng
               </h3>
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{adminOrders && adminOrders.length}</h5>
