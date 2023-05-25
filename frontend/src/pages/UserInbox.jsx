@@ -7,6 +7,7 @@ import { backend_url, server } from "../server";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineArrowRight, AiOutlineSend } from "react-icons/ai";
+import { BsArrow90DegLeft } from "react-icons/bs";
 import { TfiGallery } from "react-icons/tfi";
 import styles from "../styles/styles";
 const ENDPOINT = "https://socket-ecommerce-tu68.onrender.com/";
@@ -264,7 +265,7 @@ const UserInbox = () => {
               />
             ))}
         </div>
-        <div className="w-full">
+        <div className="w-full bg-[#dadadaee] rounded-md">
         <SellerInbox
           setOpen={setOpen}
           newMessage={newMessage}
@@ -321,8 +322,8 @@ const MessageList = ({
 
   return (
     <div
-      className={`w-full flex p-3 px-3 ${
-        active === index ? "bg-[#00000010]" : "bg-transparent"
+      className={`w-full flex p-3 px-3 border-b-2 border-slate-400 rounded-md ${
+        active === index ? "bg-[#30303005]" : "bg-transparent"
       }  cursor-pointer`}
       onClick={(e) =>
         setActive(index) ||
@@ -346,9 +347,9 @@ const MessageList = ({
       </div>
       <div className="pl-3">
         <h1 className="text-[18px]">{user?.name}</h1>
-        <p className="text-[16px] text-[#000c]">
+        <p className="text-[16px] text-[#030303cc]">
           {data?.lastMessageId !== userData?._id
-            ? "You:"
+            ? "Bạn:"
             : userData?.name.split(" ")[0] + ": "}{" "}
           {data?.lastMessage}
         </p>
@@ -372,7 +373,7 @@ const SellerInbox = ({
   return (
     <div className="w-[full] min-h-full flex flex-col justify-between p-5">
       {/* message header */}
-      <div className="w-full flex p-3 items-center justify-between bg-slate-200">
+      <div className="w-full flex p-3 items-center justify-between bg-slate-400 rounded">
         <div className="flex">
           <img
             src={`${backend_url}${userData?.avatar}`}
@@ -381,12 +382,12 @@ const SellerInbox = ({
           />
           <div className="pl-3">
             <h1 className="text-[18px] font-[600]">{userData?.name}</h1>
-            <h1>{activeStatus ? "Active Now" : ""}</h1>
+            <h1>{activeStatus ? "Đang hoạt động" : ""}</h1>
           </div>
         </div>
-        <AiOutlineArrowRight
-          size={20}
-          className="cursor-pointer"
+        <BsArrow90DegLeft
+          size={25}
+          className="cursor-pointer mr-6"
           onClick={() => setOpen(false)}
         />
       </div>
