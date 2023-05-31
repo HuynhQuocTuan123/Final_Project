@@ -15,21 +15,31 @@ const Hero = () => {
         <h1
           className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#3d3a3a] font-[600] capitalize`}
         >
-          Best Collection for <br /> home Decoration
+          Kiana shop <br /> 
         </h1>
         <p className="pt-5 text-[16px] font-[Poppins] font-[400] text-[#000000ba]">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-          assumenda? Quisquam itaque <br /> exercitationem labore vel, dolore
-          quidem asperiores, laudantium temporibus soluta optio consequatur{" "}
-          <br /> aliquam deserunt officia. Dolorum saepe nulla provident.
+         Là dịch vụ thương mại điện tử. Nơi bạn có thể mua những sản phẩm mà mình yêu thích
+         với giá cả hợp lý. <br /> Ngoài ra bạn cũng có thể trở thành một người kinh doanh 
+         trên hệ thống của chúng tôi .{" "}
+          <br /> Hãy trải nghiệm ngay thôi nào.
         </p>
-        <Link to="/products" className="inline-block">
+        <div className="flex justify-evenly">
+        <Link to="/products" >
             <div className={`${styles.button} mt-5`}>
                  <span className="text-[#fff] font-[Poppins] text-[18px]">
-                    Shop Now
+                    Mua ngay
                  </span>
             </div>
         </Link>
+        <Link to="/shop-create" >
+            <div className={`${styles.button} mt-5`}>
+                 <span className="text-[#fff] font-[Poppins] text-[18px]">
+                    Seller
+                 </span>
+            </div>
+        </Link>
+        </div>
+       
       </div>
     </div>
   );

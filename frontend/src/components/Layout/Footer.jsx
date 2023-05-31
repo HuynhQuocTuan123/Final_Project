@@ -14,8 +14,8 @@ import {
 
 const Footer = () => {
   return (
-    <div className="bg-[#000] text-white">
-      <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#342ac8] py-7">
+    <div className="bg-[#db3f59] text-white">
+      {/* <div className="md:flex md:justify-between md:items-center sm:px-12 px-4 bg-[#342ac8] py-7">
         <h1 className="lg:text-4xl text-3xl md:mb-0 mb-6 lg:leading-normal font-semibold md:w-2/5">
           <span className="text-[#56d879]">Subscribe</span> us for get news{" "}
           <br />
@@ -33,26 +33,26 @@ const Footer = () => {
             Submit
           </button>
         </div>
-      </div>
+      </div> */}
       <div className="grid grid-cols-1 sm:gird-cols-3 lg:grid-cols-4 gap-6 sm:px-8 px-5 py-16 sm:text-center">
         <ul className="px-5 text-center sm:text-start flex sm:block flex-col items-center">
           <img
-            src="https://shopo.quomodothemes.website/assets/images/logo.svg"
+            src="https://upload-os-bbs.hoyolab.com/upload/2021/12/14/150538198/70445fce849442234a0c524cbd3b99c5_7958474898017939592.png?x-oss-process=image/resize,s_1000/quality,q_80/auto-orient,0/interlace,1/format,png"
             alt=""
             style={{ filter: "brightness(0) invert(1)" }}
           />
           <br />
-          <p>The home and elements needeed to create beatiful products.</p>
+          <p></p>
           <div className="flex items-center mt-[15px]">
             <AiFillFacebook size={25} className="cursor-pointer" />
-            <AiOutlineTwitter
+            {/* <AiOutlineTwitter
               size={25}
               style={{ marginLeft: "15px", cursor: "pointer" }}
             />
             <AiFillInstagram
               size={25}
               style={{ marginLeft: "15px", cursor: "pointer" }}
-            />
+            /> */}
             <AiFillYoutube
               size={25}
               style={{ marginLeft: "15px", cursor: "pointer" }}
@@ -61,11 +61,11 @@ const Footer = () => {
         </ul>
 
         <ul className="text-center sm:text-start">
-          <h1 className="mb-1 font-semibold">Company</h1>
+          <h1 className="mb-1 font-semibold">Công ty</h1>
           {footerProductLinks.map((link,index) => (
             <li key={index}>
               <Link
-                className="text-gray-400 hover:text-teal-400 duration-300
+                className="text-white hover:text-teal-400 duration-300
                    text-sm cursor-pointer leading-6"
                 to={link.link}
               >
@@ -75,12 +75,12 @@ const Footer = () => {
           ))}
         </ul>
 
-        {/* <ul className="text-center sm:text-start">
-          <h1 className="mb-1 font-semibold">Shop</h1>
+        <ul className="text-center sm:text-start">
+          <h1 className="mb-1 font-semibold">Cửa hàng</h1>
           {footercompanyLinks.map((link,index) => (
             <li key={index}>
               <Link
-                className="text-gray-400 hover:text-teal-400 duration-300
+                className="text-white hover:text-teal-400 duration-300
                    text-sm cursor-pointer leading-6"
                 to={link.link}
               >
@@ -88,14 +88,14 @@ const Footer = () => {
               </Link>
             </li>
           ))}
-        </ul> */}
+        </ul>
 
         <ul className="text-center sm:text-start">
-          <h1 className="mb-1 font-semibold">Support</h1>
+          <h1 className="mb-1 font-semibold">Hỗ trợ</h1>
           {footerSupportLinks.map((link,index) => (
             <li key={index}>
               <Link
-                className="text-gray-400 hover:text-teal-400 duration-300
+                className="text-white hover:text-teal-400 duration-300
                    text-sm cursor-pointer leading-6"
                 to={link.link}
               >
@@ -106,19 +106,19 @@ const Footer = () => {
         </ul>
       </div>
 
-      <div
+      {/* <div
         className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10
          text-center pt-2 text-gray-400 text-sm pb-8"
       >
-        <span>© 2020 Becodemy. All rights reserved.</span>
+        <span>© 2023 Becodemy. All rights reserved.</span>
         <span>Terms · Privacy Policy</span>
         <div className="sm:block flex items-center justify-center w-full">
-          {/* <img
+          <img
             src="https://hamart-shop.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Ffooter-payment.a37c49ac.png&w=640&q=75"
             alt=""
-          /> */}
+          />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

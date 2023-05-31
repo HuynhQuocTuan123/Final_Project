@@ -62,7 +62,7 @@ const Header = ({ activeHeading }) => {
                 src="https://shopo.quomodothemes.website/assets/images/logo.svg"
                 alt=""
               /> */}
-              <h1>Kiana shop</h1>
+              {/* <h1>Kiana shop</h1> */}
             </Link>
           </div>
           {/* search box */}

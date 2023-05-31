@@ -635,16 +635,16 @@ export const navItems = [
       name: "FAQ",
     },
     {
-      name: "Reviews",
+      name: "Đánh giá",
     },
     {
-      name: "Contact Us",
+      name: "Liên hệ",
     },
+    // {
+    //   name: "Shipping",
+    // },
     {
-      name: "Shipping",
-    },
-    {
-      name: "Live chat",
+      name: "Video cách cài đặt code",
     },
   ];
   
