@@ -8,6 +8,7 @@ import { server } from "../../server";
 import { toast } from "react-toastify";
 import { loadSeller } from "../../redux/actions/user";
 import { AiOutlineDelete } from "react-icons/ai";
+import currency from "currency-formatter";
 
 const WithdrawMoney = () => {
   const [open, setOpen] = useState(false);
@@ -105,13 +106,13 @@ const WithdrawMoney = () => {
     <div className="w-full h-[90vh] p-8">
       <div className="w-full bg-white h-full rounded flex items-center justify-center flex-col">
         <h5 className="text-[20px] pb-4">
-          Available Balance: ${availableBalance}
+        <h4>Số dư khả dụng: {`${currency.format(availableBalance, { code: "VND" })}`}</h4>
         </h5>
         <div
           className={`${styles.button} text-white !h-[42px] !rounded`}
           onClick={() => (availableBalance < 50 ? error() : setOpen(true))}
         >
-          Withdraw
+          Rút tiền
         </div>
       </div>
       {open && (
@@ -131,12 +132,12 @@ const WithdrawMoney = () => {
             {paymentMethod ? (
               <div>
                 <h3 className="text-[22px] font-Poppins text-center font-[600]">
-                  Add new Withdraw Method:
+                  Thêm phương thức rút tiền:
                 </h3>
                 <form onSubmit={handleSubmit}>
                   <div>
                     <label>
-                      Bank Name <span className="text-red-500">*</span>
+                     Tên ngân hàng <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -147,7 +148,7 @@ const WithdrawMoney = () => {
                         setBankInfo({ ...bankInfo, bankName: e.target.value })
                       }
                       id=""
-                      placeholder="Enter your Bank name!"
+                      placeholder="Thêm tên ngân hàng!"
                       className={`${styles.input} mt-2`}
                     />
                   </div>
@@ -291,7 +292,7 @@ const WithdrawMoney = () => {
                       </div>
                     </div>
                     <br />
-                    <h4>Available Balance: {availableBalance}$</h4>
+                    <h4>Số dư khả dụng: {`${currency.format(availableBalance, { code: "VND" })}`}</h4>
                     <br />
                     <div className="800px:flex w-full items-center">
                       <input

@@ -50,14 +50,14 @@ const ProductCard = ({ data,isEvent }) => {
   const addToCartHandler = (id) => {
     const isItemExists = cart && cart.find((i) => i._id === id);
     if (isItemExists) {
-      toast.error("Item already in cart!");
+      toast.error("Sản phẩm đã có trong giỏ hàng!");
     } else {
       if (data.stock < 1) {
-        toast.error("Product stock limited!");
+        toast.error("Sản phẩm số lượng có giới hạn!");
       } else {
         const cartData = { ...data, qty: 1 };
         dispatch(addTocart(cartData));
-        toast.success("Item added to cart successfully!");
+        toast.success("Đã thêm vào giỏ hàng!");
       }
     }
   };
@@ -74,11 +74,11 @@ const ProductCard = ({ data,isEvent }) => {
           />
         </Link>
         <Link to={`/shop/preview/${data?.shop._id}`}>
-          <h5 className={`${styles.shop_name}`}>  {data.shop.name.length > 25 ? data.shop.name.slice(0, 15) + "..." : data.shop.name}</h5>
+          <h5 className={`${styles.shop_name}`}>  {data.shop.name.length > 20 ? data.shop.name.slice(0, 15) + "..." : data.shop.name}</h5>
         </Link>
         <Link to={`${isEvent === true ? `/product/${data._id}?isEvent=true` : `/product/${data._id}`}`}>
           <h4 className="pb-3 font-[500]">
-            {data.name.length > 40 ? data.name.slice(0, 25) + "..." : data.name}
+            {data.name.length > 35 ? data.name.slice(0, 27) + "..." : data.name}
           </h4>
 
           <div className="flex">

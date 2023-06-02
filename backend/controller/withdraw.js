@@ -24,7 +24,7 @@ router.post(
         await sendMail({
           email: req.seller.email,
           subject: "Withdraw Request",
-          message: `Hello ${req.seller.name}, Your withdraw request of ${amount}$ is processing. It will take 3days to 7days to processing! `,
+          message: `Xin chào ${req.seller.name},Yêu cầu rút tiền của bạn ${amount}$ đang được xử lý. Sẽ mất 1 khoảng thời gian cho việc rút tiền, vui lòng đợi từ 3 - 5 ngày! `,
         });
         res.status(201).json({
           success: true,
@@ -106,7 +106,7 @@ router.put(
         await sendMail({
           email: seller.email,
           subject: "Payment confirmation",
-          message: `Hello ${seller.name}, Your withdraw request of ${withdraw.amount}$ is on the way. Delivery time depends on your bank's rules it usually takes 3days to 7days.`,
+          message: `Xin chào ${seller.name}, yêu cầu rút tiền của bạn ${withdraw.amount} đang được gửi . Thời gian giao hàng phụ thuộc vào quy định của ngân hàng, thường mất từ ​​3 ngày đến 7 ngày.`,
         });
       } catch (error) {
         return next(new ErrorHandler(error.message, 500));

@@ -98,14 +98,28 @@ const Header = ({ activeHeading }) => {
               </div>
             ) : null}
           </div>
-
-          <div className={`${styles.button}`}>
-            <Link to={`${isSeller ? "/dashboard" : "/shop-create"}`}>
-              <h1 className="text-[#fff] flex items-center">
-                {isSeller ? "Go Dashboard" : "Become Seller"}{" "}
-                <IoIosArrowForward className="ml-1" />
-              </h1>
+          <div className="flex items-center">
+            {isSeller ? (null):(  <span className="font-medium mt-1 pr-2">
+              Đăng nhập vào cửa hàng
+            </span>)}
+          
+            <div className={`${styles.button}`}>
+              <Link to={`${isSeller ? "/dashboard" : "/shop-login"}`}>
+                <h1 className="text-[#fff] flex items-center">
+                  {isSeller ? "Quản lý " : "Đăng nhập"}{" "}
+                  <IoIosArrowForward className="ml-1" />
+                </h1>
+              </Link>
+              {/* {isSeller && isSeller ? null : (
+            <Link to="/shop-create">
+              <div className={`${styles.button} mt-5`}>
+                <span className="text-[#fff] font-[Poppins] text-[18px]">
+                  Seller
+                </span>
+              </div>
             </Link>
+          )} */}
+            </div>
           </div>
         </div>
       </div>
@@ -162,10 +176,7 @@ const Header = ({ activeHeading }) => {
                 className="relative cursor-pointer mr-[15px]"
                 onClick={() => setOpenCart(true)}
               >
-                <AiOutlineShoppingCart
-                  size={35}
-                  color="#de650a"
-                />
+                <AiOutlineShoppingCart size={35} color="#de650a" />
                 <span className="absolute right-0 top-0 rounded-full bg-[#de650a] w-4 h-4 top right p-0 m-0 text-white font-mono text-[12px] leading-tight text-center">
                   {cart && cart.length}
                 </span>
@@ -303,7 +314,8 @@ const Header = ({ activeHeading }) => {
               <div className={`${styles.button} ml-4 !rounded-[4px]`}>
                 <Link to="/shop-create">
                   <h1 className="text-[#fff] flex items-center">
-                   Trở thành người bán hàng <IoIosArrowForward className="ml-1" />
+                    Trở thành người bán hàng{" "}
+                    <IoIosArrowForward className="ml-1" />
                   </h1>
                 </Link>
               </div>

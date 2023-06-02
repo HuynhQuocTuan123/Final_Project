@@ -128,9 +128,16 @@ const ShopLogin = () => {
               </button>
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
-              <h4>Not have any account?</h4>
+              <h4>Bạn chưa có tài khoản?</h4>
               <Link to="/shop-create" className="text-blue-600 pl-2">
-                Sign Up
+                Đăng ký ngay
+              </Link>
+            
+            </div>
+            <div className={`${styles.noramlFlex} w-full`}>
+              {/* <h4>Quay lại trang chủ?</h4> */}
+              <Link to="/" className="text-blue-600 pl-2">
+                Trang chủ
               </Link>
             </div>
           </form>

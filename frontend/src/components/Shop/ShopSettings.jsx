@@ -95,7 +95,7 @@ const ShopSettings = () => {
         >
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
             <div className="w-full pl-[3%]">
-              <label className="block pb-2">Shop Name</label>
+              <label className="block pb-2">Tên cửa hàng</label>
             </div>
             <input
               type="name"
@@ -108,14 +108,14 @@ const ShopSettings = () => {
           </div>
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
             <div className="w-full pl-[3%]">
-              <label className="block pb-2">Shop description</label>
+              <label className="block pb-2">Mô tả</label>
             </div>
             <input
               type="name"
               placeholder={`${
                 seller?.description
                   ? seller.description
-                  : "Enter your shop description"
+                  : "Thêm mô tả cho cửa hàng của bạn..."
               }`}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
@@ -124,7 +124,7 @@ const ShopSettings = () => {
           </div>
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
             <div className="w-full pl-[3%]">
-              <label className="block pb-2">Shop Address</label>
+              <label className="block pb-2">Địa chỉ cửa hàng</label>
             </div>
             <input
               type="name"
@@ -138,7 +138,7 @@ const ShopSettings = () => {
 
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
             <div className="w-full pl-[3%]">
-              <label className="block pb-2">Shop Phone Number</label>
+              <label className="block pb-2">Số điện thoại</label>
             </div>
             <input
               type="number"
@@ -167,7 +167,7 @@ const ShopSettings = () => {
           <div className="w-[100%] flex items-center flex-col 800px:w-[50%] mt-5">
             <input
               type="submit"
-              value="Update Shop"
+              value="Cập nhật thông tin"
               className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
               required
               readOnly

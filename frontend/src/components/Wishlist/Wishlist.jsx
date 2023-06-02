@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromWishlist } from "../../redux/actions/wishlist";
 import { backend_url } from "../../server";
 import { addTocart } from "../../redux/actions/cart";
+import currency from "currency-formatter";
 
 const Wishlist = ({ setOpenWishlist }) => {
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -93,7 +94,7 @@ const CartSingle = ({ data,removeFromWishlistHandler,addToCartHandler }) => {
         <div className="pl-[5px]">
           <h1>{data.name}</h1>
           <h4 className="font-[600] pt-3 800px:pt-[3px] text-[17px] text-[#d02222] font-Roboto">
-            US${totalPrice}
+          {`${currency.format(totalPrice, { code: "VND" })}`}
           </h4>
         </div>
         <div>

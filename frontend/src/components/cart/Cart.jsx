@@ -8,6 +8,7 @@ import { backend_url } from "../../server";
 import { useDispatch, useSelector } from "react-redux";
 import { addTocart, removeFromCart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
+import currency from "currency-formatter";
 
 const Cart = ({ setOpenCart }) => {
   const { cart } = useSelector((state) => state.cart);
@@ -78,7 +79,7 @@ const Cart = ({ setOpenCart }) => {
                   className={`h-[45px] flex items-center justify-center w-[100%] bg-[#e44343] rounded-[5px]`}
                 >
                   <h1 className="text-[#fff] text-[18px] font-[600]">
-                    Thanh toán ngay (USD${totalPrice})
+                    Thanh toán ngay (  {`${currency.format(totalPrice, { code: "VND" })}`})
                   </h1>
                 </div>
               </Link>
@@ -136,10 +137,12 @@ const CartSingle = ({ data, quantityChangeHandler, removeFromCartHandler }) => {
         <div className="pl-[5px]">
           <h1>{data.name}</h1>
           <h4 className="font-[400] text-[15px] text-[#00000082]">
-            ${data.discountPrice} * {value}
+            {/* ${data.discountPrice} * {value} */}
+            {`${currency.format(data.discountPrice, { code: "VND" })}`} * {value}
           </h4>
           <h4 className="font-[600] text-[17px] pt-[3px] text-[#d02222] font-Roboto">
-            US${totalPrice}
+            {/* US${totalPrice} */}
+            {`${currency.format(totalPrice, { code: "VND" })}`}
           </h4>
         </div>
         <RxCross1 size={36} 

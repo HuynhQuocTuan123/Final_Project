@@ -133,6 +133,12 @@ const Login = () => {
                 Đăng ký tại đây!
               </Link>
             </div>
+            <div className={`${styles.noramlFlex} w-full`}>
+              <h4>Quay lại trang chủ?</h4>
+              <Link to="/" className="text-blue-600 pl-2">
+                Trang chủ
+              </Link>
+            </div>
           </form>
         </div>
       </div>

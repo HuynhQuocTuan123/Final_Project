@@ -62,14 +62,14 @@ const ProductDetails = ({ data }) => {
   const addToCartHandler = (id) => {
     const isItemExists = cart && cart.find((i) => i._id === id);
     if (isItemExists) {
-      toast.error("Item already in cart!");
+      toast.error("Sản phẩm đã có trong giỏ hàng!");
     } else {
       if (data.stock < 1) {
-        toast.error("Product stock limited!");
+        toast.error("Sản phẩm có số lượng giới hạn!");
       } else {
         const cartData = { ...data, qty: count };
         dispatch(addTocart(cartData));
-        toast.success("Item added to cart successfully!");
+        toast.success("Sản phẩm đã thêm vào giỏ hàng!");
       }
     }
   };

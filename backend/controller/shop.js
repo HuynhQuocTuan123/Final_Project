@@ -50,11 +50,11 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
       await sendMail({
         email: seller.email,
         subject: "Activate your Shop",
-        message: `Hello ${seller.name}, please click on the link to activate your shop: ${activationUrl}`,
+        message: `Xin chào ${seller.name}, Vui lòng nhấn vào liên kết để xác minh email đăng ký " Trở thành người bán" trên Kiana shop: ${activationUrl}`,
       });
       res.status(201).json({
         success: true,
-        message: `please check your email:- ${seller.email} to activate your shop!`,
+        message: `Vui lòng kiểm tra Email:- ${seller.email} để xác minh đăng ký!`,
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
