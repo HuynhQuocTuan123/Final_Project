@@ -5,26 +5,35 @@ import EventCard from "./EventCard";
 
 const Events = () => {
   const { allEvents, isLoading } = useSelector((state) => state.events);
-
+  console.log(allEvents);
   return (
     <div>
-      
       {!isLoading && (
-        <div className={`${styles.section}`}>
-           {allEvents && allEvents.length !== 0 ?(
-            <div>
-          <div className={`${styles.heading}`}>
-            <h1>Khuyến mãi</h1>
-          </div>
-
-          <div className="w-full grid">
-            {allEvents.length !== 0 && (
-              <EventCard data={allEvents && allEvents[0]} />
-            )}
-            {/* <h4>{allEvents?.length === 0 && "No Events have!"}</h4> */}
-          </div>
-          </div>):(null)}
-        </div>
+       <>
+          {allEvents.length !== 0 && (
+            <>
+            <div className={`${styles.section}`}>
+            <div className={`${styles.heading}`}>
+                <h1>Sự kiện khuyến mãi, giảm giá nổi bật</h1>
+              </div>
+            </div>
+            
+            <div className="w-full bg-[#f0f6f6] grid h-[55vh] overflow-x-auto hover:overflow-scroll">
+            <div className={`${styles.section}`}>
+              
+              <div className="">
+                {" "}
+                {allEvents &&
+                  allEvents.map((allEvents, index) => (
+                    <EventCard data={allEvents} />
+                  ))}
+              </div>
+            </div>
+            </div>
+            </>
+          )}
+          <h4>{allEvents?.length === 0 && null}</h4>
+          </>
       )}
     </div>
   );
