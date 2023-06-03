@@ -191,51 +191,51 @@ export const navItems = [
   export const categoriesData = [
     {
       id: 1,
-      title: "Laptop-máy tính-linh kiện",
+      title: "Laptop-máy tính",
       subTitle: "",
       image_Url:
-        "https://cdn.shopify.com/s/files/1/1706/9177/products/NEWAppleMacbookProwithM1ProChip14InchLaptop2021ModelMKGQ3LL_A_16GB_1TBSSD_custommacbd.jpg?v=1659592838",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1685782392/laptopvalinhkien_y514tt.png",
     },
     {
       id: 2,
-      title: "Làm đẹp và sức khỏe",
+      title: "Thiết bị điện tử",
       subTitle: "",
       image_Url:
-        "https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2021-07/kosme1.png",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1685782843/thietbidientu_tfwfap.png",
     },
     {
       id: 3,
-      title: "Đồng hồ - trang sức",
+      title: "Đồng hồ",
       subTitle: "",
       image_Url:
-        "https://img.freepik.com/free-vector/ordering-goods-online-internet-store-online-shopping-niche-e-commerce-website-mother-buying-babies-clothes-footwear-toys-infant-accessories_335657-2345.jpg?w=2000",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1685782557/applewatch_nojf7l.png",
     },
     {
       id: 4,
-      title: "Phụ kiện và thời trang",
+      title: "Thời trang nam",
       subTitle: "",
       image_Url:
-        "https://www.shift4shop.com/2015/images/industries/clothing/clothing-apparel.png",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1685785948/a-man-in-a-business-suit-on-a-white-background-vector-illustration-in-flat-style-2MAET0B_odwc0q.jpg",
     },
     {
       id: 5,
-      title: "Đồ cũ",
+      title: "Thời trang nữ",
       subTitle: "",
       image_Url:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvBQPQMVNRd6TtDkGs2dCri0Y-rxKkFOiEWw&usqp=CAU",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1685785669/Pngtree_fashion_girl_2581869_ofbitr.png",
     },
     {
       id: 6,
-      title: "Gifts",
+      title: "Quà tặng- đồ trưng bày",
       subTitle: "",
       image_Url:
         "https://res.cloudinary.com/drymesbrv/image/upload/v1683880836/honkai-impact-3rd-sakura-flame-soul-flame-sakitama-1-8-scale-figure-750x750w_qgmbjr.jpg",
     },
     {
       id: 7,
-      title: "Đồ trưng bày",
-      subTitle: "",
-      image_Url: "https://cdn.openpr.com/T/c/Tc15444071_g.jpg",
+      title: "Thể thao -du lịch",
+      subTitle: "Phụ kiện, dụng cụ thể thao, du lịch",
+      image_Url: "https://res.cloudinary.com/drymesbrv/image/upload/v1685786133/pngegg_1_bnifhb.png",
     },
     {
       id: 8,
@@ -249,15 +249,15 @@ export const navItems = [
       title: "Music and Gaming",
       subTitle: "",
       image_Url:
-        "https://static.vecteezy.com/system/resources/previews/011/996/555/original/3d-black-headphone-illustration-ecommerce-icon-png.png",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1685786292/pngegg_2_sujhle.png",
     },
   
     {
       id: 10,
-      title: "Others",
+      title: "Danh mục khác",
       subTitle: "",
       image_Url:
-        "https://searchspring.com/wp-content/uploads/2022/10/Hero-Image-Platform-Others-2.png",
+        "https://res.cloudinary.com/drymesbrv/image/upload/v1685786678/pngegg_3_byxapr.png",
     },
   ];
   
