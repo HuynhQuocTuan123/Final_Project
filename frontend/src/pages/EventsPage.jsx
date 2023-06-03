@@ -7,13 +7,11 @@ import PageNotfound from "./PageNotfound";
 
 const EventsPage = () => {
   const { allEvents, isLoading } = useSelector((state) => state.events);
- console.log(allEvents.length)
+  console.log(allEvents.length);
   return (
     <>
       {isLoading ? (
-
         <Loader />
-
       ) : (
         <div>
           <Header activeHeading={4} />
@@ -22,13 +20,17 @@ const EventsPage = () => {
                   allEvents.map((allEvents, index) => (
                     <EventCard data={allEvents} />
                   ))} */}
-                  {allEvents && allEvents.length == 0 ? (<PageNotfound />):(<>{ allEvents.map((allEvents, index) => (
-                    <EventCard data={allEvents} />
-                  ))} </> )}
-                 
-                  
+          {allEvents && allEvents.length == 0 ? (
+            <PageNotfound />
+          ) : (
+            <>
+              {allEvents.map((allEvents, index) => (
+                <EventCard data={allEvents} />
+              ))}{" "}
+            </>
+          )}
         </div>
-)}
+      )}
     </>
   );
 };
