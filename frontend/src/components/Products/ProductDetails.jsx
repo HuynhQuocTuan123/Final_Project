@@ -111,6 +111,7 @@ const ProductDetails = ({ data }) => {
       toast.error("Please login to create a conversation");
     }
   };
+  console.log(data)
 
   return (
     <div className="bg-white">
@@ -149,7 +150,11 @@ const ProductDetails = ({ data }) => {
               </div>
               <div className="w-full 800px:w-[50%] pt-5">
                 <h1 className={`${styles.productTitle}`}>{data.name}</h1>
-                <p>Tag: #<i className="text-[#242e8a] ">{data.tags}</i></p>
+                <div className="flex">
+                <p>Tag: #<i className="text-[#242e8a] mr-4 ">{data.tags}</i></p>
+                <p>Thể loại: <i className="text-[#8a2424] ">{data.category}</i></p>
+                </div>
+                
                  <span className="font-[500] text-[17px] text-[#f1055c]">
               {data?.sold_out} đã bán
             </span>

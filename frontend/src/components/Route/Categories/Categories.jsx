@@ -8,10 +8,10 @@ const Categories = () => {
   return (
     <>
       <div className={`${styles.section} hidden sm:block`}>
-        {/* <div
-          className={`branding my-12 flex justify-between w-full shadow-sm bg-white p-5 rounded-md`}
+         <div
+          className={`branding my-12 flex justify-between w-full p-5 rounded-md`}
         >
-          {brandingData &&
+          {/* {brandingData &&
             brandingData.map((i, index) => (
               <div className="flex items-start" key={index}>
                 {i.icon}
@@ -20,8 +20,8 @@ const Categories = () => {
                   <p className="text-xs md:text-sm">{i.Description}</p>
                 </div>
               </div>
-            ))}
-        </div> */}
+            ))} */}
+        </div> 
       </div>
 
       <div
