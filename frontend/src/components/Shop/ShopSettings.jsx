@@ -35,7 +35,7 @@ const ShopSettings = () => {
         withCredentials: true,
     }).then((res) => {
         dispatch(loadSeller());
-        toast.success("Avatar updated successfully!")
+        toast.success("Thay đổi Avatar thành công!")
     }).catch((error) => {
         toast.error(error.response.data.message);
     })
@@ -52,7 +52,7 @@ const ShopSettings = () => {
         phoneNumber,
         description,
     }, {withCredentials: true}).then((res) => {
-        toast.success("Shop info updated succesfully!");
+        toast.success("Cập nhật thông tin thành công!");
         dispatch(loadSeller());
     }).catch((error)=> {
         toast.error(error.response.data.message);
@@ -168,7 +168,7 @@ const ShopSettings = () => {
             <input
               type="submit"
               value="Cập nhật thông tin"
-              className={`${styles.input} !w-[95%] mb-4 800px:mb-0`}
+              className={`${styles.input} !w-[95%] bg-[#2035eceb] text-[#fff] mb-4 800px:mb-0`}
               required
               readOnly
             />

@@ -16,6 +16,7 @@ import {
   addToWishlist,
   removeFromWishlist,
 } from "../../../redux/actions/wishlist";
+import currency from "currency-formatter";
 
 const ProductDetailsCard = ({ setOpen, data }) => {
   const { cart } = useSelector((state) => state.cart);
@@ -87,7 +88,7 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   src={`${backend_url}${data.images && data.images[0]}`}
                   alt=""
                 />
-                <div className="flex">
+                <div className="flex mt-3">
                   <Link to={`/shop/preview/${data.shop._id}`} className="flex">
                     <img
                       src={`${backend_url}${data?.shop?.avatar}`}
@@ -95,10 +96,10 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                       className="w-[50px] h-[50px] rounded-full mr-2"
                     />
                     <div>
-                      <h3 className={`${styles.shop_name}`}>
+                      <h3 className={`${styles.shop_name} text-[18px] text-[#830000ea] font-medium`}>
                         {data.shop.name}
                       </h3>
-                      <h5 className="pb-3 text-[15px]">(4.5) Ratings</h5>
+                      <h5 className="pb-3 text-[16px] font-normal">(4.5) Đánh giá</h5>
                     </div>
                   </Link>
                 </div>
@@ -107,27 +108,50 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   onClick={handleMessageSubmit}
                 >
                   <span className="text-[#fff] flex items-center">
-                    Send Message <AiOutlineMessage className="ml-1" />
+                    Gửi tin nhắn <AiOutlineMessage className="ml-1" />
                   </span>
                 </div>
-                <h5 className="text-[16px] text-[red] mt-5">(50) Sold out</h5>
+                <h5 className="text-[16px] text-[red] mt-5"></h5>
               </div>
 
               <div className="w-full 800px:w-[50%] pt-5 pl-[5px] pr-[5px]">
-                <h1 className={`${styles.productTitle} text-[20px]`}>
+                <h1 className={`${styles.productTitle} text-[22px] px-5`}>
                   {data.name}
                 </h1>
-                <p>{data.description}</p>
 
-                <div className="flex pt-3">
-                  <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.discountPrice}$
+                <div className="flex pt-3 px-5">
+                  <h4 className={`${styles.productDiscountPrice} text-2xl`}>
+                    {currency.format(data.discountPrice, { code: "VND" })}
                   </h4>
                   <h3 className={`${styles.price}`}>
-                    {data.originalPrice ? data.originalPrice + "$" : null}
+                    {data.originalPrice
+                      ? `${currency.format(data.originalPrice, {
+                          code: "VND",
+                        })}`
+                      : null}
                   </h3>
                 </div>
-                <div className="flex items-center mt-12 justify-between pr-3">
+                {
+                  /* <p className="py-2 text-[18px] leading-8 pb-10 px-5 whitespace-pre-line">
+                  {data.description.length > 200
+                    ? data.description.slice(0, 130) + "..." + <Link to={`/product/${data._id}`}> <p>Nhấn để xem thêm</p></Link>
+                    : data.description}
+                </p> */
+                  <p className="py-2 text-[18px] leading-8 pb-10 px-5 whitespace-pre-line">
+                    {data.description.length > 200 ? (
+                      <>
+                        {data.description.slice(0, 130)} ...
+                        <Link to={`/product/${data._id}`}>
+                          {" "}
+                          <p className="text-[#0054c3f5]">Nhấn để xem thêm</p>
+                        </Link>
+                      </>
+                    ) : (
+                      data.description
+                    )}
+                  </p>
+                }
+                <div className="flex items-center mt-12 justify-between px-5 pr-3">
                   <div>
                     <button
                       className="bg-gradient-to-r from-teal-400 to-teal-500 text-white font-bold rounded-l px-4 py-2 shadow-lg hover:opacity-75 transition duration-300 ease-in-out"
@@ -164,14 +188,16 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                     )}
                   </div>
                 </div>
-                <div
+               <div className="px-4">
+               <div
                   className={`${styles.button} mt-6 rounded-[4px] h-11 flex items-center`}
                   onClick={() => addToCartHandler(data._id)}
                 >
                   <span className="text-[#fff] flex items-center">
-                    Add to cart <AiOutlineShoppingCart className="ml-1" />
+                    Thêm vào giỏ <AiOutlineShoppingCart className="ml-1" />
                   </span>
                 </div>
+               </div>
               </div>
             </div>
           </div>

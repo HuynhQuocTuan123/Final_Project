@@ -63,6 +63,7 @@ const Header = ({ activeHeading }) => {
                 alt=""
               /> */}
               {/* <h1>Kiana shop</h1> */}
+              <h1 className="text-[33px] font-bold underline decoration-[#db3f59] hover:decoration-4">Kiana shop</h1>
             </Link>
           </div>
           {/* search box */}

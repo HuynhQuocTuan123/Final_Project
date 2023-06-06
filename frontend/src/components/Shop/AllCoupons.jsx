@@ -63,7 +63,7 @@ const AllCoupons = () => {
         { withCredentials: true }
       )
       .then((res) => {
-       toast.success("Coupon code created successfully!");
+       toast.success("Đã tạo mã giảm giá thành công!");
        setOpen(false);
        window.location.reload();
       })
@@ -76,18 +76,18 @@ const AllCoupons = () => {
     { field: "id", headerName: "Id", minWidth: 150, flex: 0.7 },
     {
       field: "name",
-      headerName: "Coupon Code",
+      headerName: "Mã giảm giá",
       minWidth: 180,
       flex: 1.4,
     },
     {
       field: "price",
-      headerName: "Value",
+      headerName: "Giá trị",
       minWidth: 100,
       flex: 0.6,
     },
     {
-      field: "Delete",
+      field: "Xóa",
       flex: 0.8,
       minWidth: 120,
       headerName: "",
@@ -125,7 +125,7 @@ const AllCoupons = () => {
         <div className="w-full mx-8 pt-1 mt-10 bg-white">
           <div className="w-full flex justify-end">
             <div
-              className={`${styles.button} !w-max !h-[45px] px-3 !rounded-[5px] mr-3 mb-3`}
+              className={`${styles.button} !w-max !h-[45px] px-3 !rounded-[5px] mr-3 mb-3 bg-[#f61d1deb]`}
               onClick={() => setOpen(true)}
             >
               <span className="text-white">Thêm mã giảm giá</span>
@@ -232,7 +232,7 @@ const AllCoupons = () => {
                     <input
                       type="submit"
                       value="Tạo mã giảm giá"
-                      className="mt-2 appearance-none block w-full px-3 h-[35px] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                      className="mt-2 appearance-none block w-full px-3 h-[35px] bg-[#050505bd] text-[#fff] border border-gray-300 rounded-[3px] placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                     />
                   </div>
                 </form>

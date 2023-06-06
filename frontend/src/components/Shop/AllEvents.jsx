@@ -8,6 +8,7 @@ import { deleteEvent, getAllEventsShop } from "../../redux/actions/event";
 import { getAllProductsShop } from "../../redux/actions/product";
 import { deleteProduct } from "../../redux/actions/product";
 import Loader from "../Layout/Loader";
+import currency from "currency-formatter";
 
 const AllEvents = () => {
   const { events, isLoading } = useSelector((state) => state.events);
@@ -25,22 +26,22 @@ const AllEvents = () => {
   }
 
   const columns = [
-    { field: "id", headerName: "Product Id", minWidth: 150, flex: 0.7 },
+    { field: "id", headerName: "ID SP", minWidth: 150, flex: 0.7 },
     {
       field: "name",
-      headerName: "Name",
+      headerName: "Tên sản phẩm",
       minWidth: 180,
       flex: 1.4,
     },
     {
       field: "price",
-      headerName: "Price",
+      headerName: "Giá",
       minWidth: 100,
       flex: 0.6,
     },
     {
       field: "Stock",
-      headerName: "Stock",
+      headerName: "Số lượng",
       type: "number",
       minWidth: 80,
       flex: 0.5,
@@ -48,13 +49,13 @@ const AllEvents = () => {
 
     {
       field: "sold",
-      headerName: "Sold out",
+      headerName: "Đã bán",
       type: "number",
       minWidth: 130,
       flex: 0.6,
     },
     {
-      field: "Preview",
+      field: "Xem",
       flex: 0.8,
       minWidth: 100,
       headerName: "",
@@ -75,7 +76,7 @@ const AllEvents = () => {
       },
     },
     {
-      field: "Delete",
+      field: "Xóa",
       flex: 0.8,
       minWidth: 120,
       headerName: "",
@@ -102,7 +103,9 @@ const AllEvents = () => {
       row.push({
         id: item._id,
         name: item.name,
-        price: "US$ " + item.discountPrice,
+        price: `${currency.format(item.discountPrice, {
+          code: "VND",
+        })}`,
         Stock: item.stock,
         sold: item.sold_out,
       });

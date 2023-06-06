@@ -772,7 +772,7 @@ const Address = () => {
 
       {user && user.addresses.length === 0 && (
         <h5 className="text-center pt-8 text-[18px]">
-          You not have any saved address!
+          Bạn chưa cập nhật địa chỉ nào!!!
         </h5>
       )}
     </div>

@@ -40,7 +40,7 @@ const DashboardSideBar = ({ active }) => {
               active === 2 ? "text-[crimson] font-bold" : "text-[#555]"
             }`}
           >
-            All Orders
+            Đơn hàng
           </h5>
         </Link>
       </div>
