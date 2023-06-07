@@ -9,7 +9,7 @@ const Categories = () => {
     <>
       <div className={`${styles.section} hidden sm:block`}>
          <div
-          className={`branding my-12 flex justify-between w-full p-5 rounded-md`}
+          className={`branding my-4 flex justify-between w-full p-3 rounded-md`}
         >
           {/* {brandingData &&
             brandingData.map((i, index) => (

@@ -267,7 +267,7 @@ const AllOrders = () => {
       row.push({
         id: item._id,
         itemsQty: item.cart.length,
-        total: "US$ " + item.totalPrice,
+        total:  `${currency.format(item.totalPrice, { code: "VND" })}`,
         status: item.status,
       });
     });

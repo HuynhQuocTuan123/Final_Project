@@ -68,16 +68,16 @@ const UserOrderDetails = () => {
       <div className="w-full flex items-center justify-between">
         <div className="flex items-center">
           <BsFillBagFill size={30} color="crimson" />
-          <h1 className="pl-2 text-[25px]">Order Details</h1>
+          <h1 className="pl-2 text-[25px]">Thông tin đơn hàng</h1>
         </div>
       </div>
 
       <div className="w-full flex items-center justify-between pt-6">
         <h5 className="text-[#00000084]">
-          Order ID: <span>#{data?._id?.slice(0, 8)}</span>
+         ID đơn hàng: <span>#{data?._id?.slice(0, 8)}</span>
         </h5>
         <h5 className="text-[#00000084]">
-          Placed on: <span>{data?.createdAt?.slice(0, 10)}</span>
+         Thời gian: <span>{data?.createdAt?.slice(0, 10)}</span>
         </h5>
       </div>
 
