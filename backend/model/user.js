@@ -31,9 +31,9 @@ const userSchema = new mongoose.Schema({
       address1:{
         type: String,
       },
-      address2:{
-        type: String,
-      },
+      // address2:{
+      //   type: String,
+      // },
       zipCode:{
         type: Number,
       },

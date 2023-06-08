@@ -256,7 +256,7 @@ router.put(
       );
       if (sameTypeAddress) {
         return next(
-          new ErrorHandler(`${req.body.addressType} address already exists`)
+          new ErrorHandler(`${req.body.addressType} địa chỉ đã tồn tại!`)
         );
       }
 
