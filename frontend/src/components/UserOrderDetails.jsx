@@ -9,6 +9,7 @@ import { RxCross1 } from "react-icons/rx";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import axios from "axios";
 import { toast } from "react-toastify";
+import currency from "currency-formatter";
 
 const UserOrderDetails = () => {
   const { orders } = useSelector((state) => state.order);
@@ -96,14 +97,14 @@ const UserOrderDetails = () => {
             <div className="w-full">
               <h5 className="pl-3 text-[20px]">{item.name}</h5>
               <h5 className="pl-3 text-[20px] text-[#00000091]">
-                US${item.discountPrice} x {item.qty}
+              {currency.format(item.discountPrice, { code: "VND" })} x {item.qty}
               </h5>
             </div>
             {!item.isReviewed && data?.status === "Delivered" ?  <div
                 className={`${styles.button} text-[#fff]`}
                 onClick={() => setOpen(true) || setSelectedItem(item)}
               >
-                Write a review
+               Đánh giá SP
               </div> : (
              null
             )}
@@ -123,19 +124,19 @@ const UserOrderDetails = () => {
               />
             </div>
             <h2 className="text-[30px] font-[500] font-Poppins text-center">
-              Give a Review
+              Đánh giá sản phẩm
             </h2>
             <br />
-            <div className="w-full flex">
+            <div className="w-full flex ">
               <img
                 src={`${backend_url}/${selectedItem?.images[0]}`}
                 alt=""
-                className="w-[80px] h-[80px]"
+                className="w-[90px] h-[90px] border-4 border-sky-500 rounded-[8px]"
               />
               <div>
                 <div className="pl-3 text-[20px]">{selectedItem?.name}</div>
                 <h4 className="pl-3 text-[20px]">
-                  US${selectedItem?.discountPrice} x {selectedItem?.qty}
+                 {currency.format(selectedItem?.discountPrice, { code: "VND" })} x {selectedItem?.qty}
                 </h4>
               </div>
             </div>
@@ -145,7 +146,7 @@ const UserOrderDetails = () => {
 
             {/* ratings */}
             <h5 className="pl-3 text-[20px] font-[500]">
-              Give a Rating <span className="text-red-500">*</span>
+              Đánh giá : <span className="text-red-500">*</span>
             </h5>
             <div className="flex w-full ml-2 pt-1">
               {[1, 2, 3, 4, 5].map((i) =>
@@ -171,9 +172,9 @@ const UserOrderDetails = () => {
             <br />
             <div className="w-full ml-3">
               <label className="block text-[20px] font-[500]">
-                Write a comment
+                Viết đánh giá
                 <span className="ml-1 font-[400] text-[16px] text-[#00000052]">
-                  (optional)
+                  (không bắt buộc)
                 </span>
               </label>
               <textarea
@@ -183,7 +184,7 @@ const UserOrderDetails = () => {
                 rows="5"
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                placeholder="How was your product? write your expresion about it!"
+                placeholder="Hãy để lại bình luận, nhận xét của bạn về sản phẩm nhé, điều này cực kì hữu ích cho những người mua khác và cả chính cửa hàng đó!"
                 className="mt-2 w-[95%] border p-2 outline-none"
               ></textarea>
             </div>
@@ -191,7 +192,7 @@ const UserOrderDetails = () => {
               className={`${styles.button} text-white text-[20px] ml-3`}
               onClick={rating > 1 ? reviewHandler : null}
             >
-              Submit
+              Gửi
             </div>
           </div>
         </div>
@@ -199,27 +200,27 @@ const UserOrderDetails = () => {
 
       <div className="border-t w-full text-right">
         <h5 className="pt-3 text-[18px]">
-          Total Price: <strong>US${data?.totalPrice}</strong>
+          Tổng tiền: <strong> {currency.format(data?.totalPrice, { code: "VND" })}</strong>
         </h5>
       </div>
       <br />
       <br />
       <div className="w-full 800px:flex items-center">
         <div className="w-full 800px:w-[60%]">
-          <h4 className="pt-3 text-[20px] font-[600]">Shipping Address:</h4>
+          <h4 className="pt-3 text-[20px] font-[700]">Thông tin giao hàng:</h4>
           <h4 className="pt-3 text-[20px]">
-            {data?.shippingAddress.address1 +
-              " " +
-              data?.shippingAddress.address2}
+           <b>Địa chỉ:</b> {data?.shippingAddress.address1 +
+              ", " +
+              data?.shippingAddress.city}
           </h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.country}</h4>
-          <h4 className=" text-[20px]">{data?.shippingAddress.city}</h4>
-          <h4 className=" text-[20px]">{data?.user?.phoneNumber}</h4>
+          {/* <h4 className=" text-[20px]">{data?.shippingAddress.country}</h4> */}
+          {/* <h4 className=" text-[20px]">{data?.shippingAddress.city}</h4> */}
+          <h4 className=" text-[20px]"><b>Số điện thoại:</b> (+84) {data?.user?.phoneNumber}</h4>
         </div>
         <div className="w-full 800px:w-[40%]">
-          <h4 className="pt-3 text-[20px]">Payment Info:</h4>
+          <h4 className="pt-3 text-[20px]">Thông tin thanh toán:</h4>
           <h4>
-            Status:{" "}
+            Trạng thái:{" "}
             {data?.paymentInfo?.status ? data?.paymentInfo?.status : "Not Paid"}
           </h4>
           <br />
@@ -227,14 +228,14 @@ const UserOrderDetails = () => {
             data?.status === "Delivered" && (
               <div className={`${styles.button} text-white`}
               onClick={refundHandler}
-              >Give a Refund</div>
+              >Yêu cầu trả hàng</div>
             )
            }
         </div>
       </div>
       <br />
       <Link to="/">
-        <div className={`${styles.button} text-white`}>Send Message</div>
+        <div className={`${styles.button} text-white`}>Gửi tin nhắn</div>
       </Link>
       <br />
       <br />

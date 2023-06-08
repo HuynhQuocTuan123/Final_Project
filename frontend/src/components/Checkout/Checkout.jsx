@@ -7,11 +7,12 @@ import { useEffect } from "react";
 import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
+import currency from "currency-formatter";
 
 const Checkout = () => {
   const { user } = useSelector((state) => state.user);
   const { cart } = useSelector((state) => state.cart);
-  const [country, setCountry] = useState("");
+  const [country, setCountry] = useState("VN");
   const [city, setCity] = useState("");
   const [userInfo, setUserInfo] = useState(false);
   const [address1, setAddress1] = useState("");
@@ -60,7 +61,7 @@ const Checkout = () => {
   );
 
   // this is shipping cost variable
-  const shipping = subTotalPrice * 0.1;
+  const shipping = subTotalPrice * 0.02;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -294,7 +295,7 @@ const ShippingInfo = ({
         className="text-[18px] cursor-pointer inline-block"
         onClick={() => setUserInfo(!userInfo)}
       >
-        Chọn địa chỉ mà bạn đã lưu: (Nhấn vào đây để chọn)
+        Chọn địa chỉ mà bạn đã lưu: <h5 className="text-[#027df0fd]">(Nhấn vào đây để chọn)</h5> 
       </h5>
       {userInfo && (
         <div>
@@ -335,22 +336,22 @@ const CartData = ({
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Tổng tiền:</h3>
-        <h5 className="text-[18px] font-[600]">${subTotalPrice}</h5>
+        <h5 className="text-[18px] font-[600]">{currency.format(subTotalPrice, { code: "VND" })}</h5>
       </div>
       <br />
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Phí giao hàng:</h3>
-        <h5 className="text-[18px] font-[600]">${shipping.toFixed(2)}</h5>
+        <h5 className="text-[18px] font-[600]">{currency.format(shipping.toFixed(2), { code: "VND" })}</h5>
       </div>  
       <br />
       <div className="flex justify-between border-b pb-3">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Voucher:</h3>
         <h5 className="text-[18px] font-[600]">
-          - {discountPercentenge ? "$" + discountPercentenge.toString() : null}
+          -{discountPercentenge ? "" + `${currency.format(discountPercentenge.toString(), { code: "VND" })}` : null}
         </h5>
       </div>
       <h3 className="text-[16px] font-[400] text-[#000000a4]">Tổng cộng:</h3>
-      <h5 className="text-[18px] font-[600] text-end pt-3"> ${totalPrice}</h5>
+      <h5 className="text-[18px] font-[600] text-end pt-3"> {currency.format(totalPrice, { code: "VND" })}</h5>
       <br />
       <form onSubmit={handleSubmit}>
         <input

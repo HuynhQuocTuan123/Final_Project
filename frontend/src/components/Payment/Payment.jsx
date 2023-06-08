@@ -344,7 +344,7 @@ const PaymentInfo = ({
               className={`${styles.button} !bg-[#f63b60] text-white h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               onClick={() => setOpen(true)}
             >
-              Pay Now
+              Thanh toán ngay
             </div>
             {open && (
               <div className="w-full fixed top-0 left-0 bg-[#00000039] h-screen flex items-center justify-center z-[99999]">
@@ -359,7 +359,7 @@ const PaymentInfo = ({
                     <PayPalScriptProvider
                       options={{
                         "client-id":
-                          "Aczac4Ry9_QA1t4c7TKH9UusH3RTe6onyICPoCToHG10kjlNdI-qwobbW9JAHzaRQwFMn2-k660853jn",
+                          "ASKKoZMziCnQPVINeRdR2yLhP7hsYw4wAYzM8WniydfEN1YXYlOHPSQy-Wg6AuaHFBZRuZuwcUNNt_NN",
                       }}
                     >
                       <PayPalButtons
