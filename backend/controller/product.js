@@ -18,7 +18,7 @@ router.post(
       const shopId = req.body.shopId;
       const shop = await Shop.findById(shopId);
       if (!shop) {
-        return next(new ErrorHandler("Shop Id is invalid!", 400));
+        return next(new ErrorHandler("Id cửa hàng không hợp lệ!", 400));
       } else {
         const files = req.files;
         const imageUrls = files.map((file) => `${file.filename}`);
@@ -81,12 +81,12 @@ router.delete(
       const product = await Product.findByIdAndDelete(productId);
 
       if (!product) {
-        return next(new ErrorHandler("Product not found with this id!", 500));
+        return next(new ErrorHandler("Không tìm thấy sản phẩm với ID này!", 500));
       }
 
       res.status(201).json({
         success: true,
-        message: "Product Deleted successfully!",
+        message: "Xóa sản phẩm thành công!",
       });
     } catch (error) {
       return next(new ErrorHandler(error, 400));
@@ -160,7 +160,7 @@ router.put(
 
       res.status(200).json({
         success: true,
-        message: "Reviwed succesfully!",
+        message: "Đánh giá thành công!",
       });
     } catch (error) {
       return next(new ErrorHandler(error, 400));

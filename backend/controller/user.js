@@ -25,7 +25,7 @@ router.post("/create-user", upload.single("file"), async (req, res, next) => {
           res.status(500).json({ message: "Error deleting file" });
         }
       });
-      return next(new ErrorHandler("User already exists", 400));
+      return next(new ErrorHandler("Người dùng đã tồn tại", 400));
     }
 
     const filename = req.file.filename;
@@ -80,14 +80,14 @@ router.post(
       );
 
       if (!newUser) {
-        return next(new ErrorHandler("Invalid token", 400));
+        return next(new ErrorHandler("Token không hợp lệ", 400));
       }
       const { name, email, password, avatar } = newUser;
 
       let user = await User.findOne({ email });
 
       if (user) {
-        return next(new ErrorHandler("User already exists", 400));
+        return next(new ErrorHandler("Người dùng đã tồn tại!", 400));
       }
       user = await User.create({
         name,
@@ -111,20 +111,20 @@ router.post(
       const { email, password } = req.body;
 
       if (!email || !password) {
-        return next(new ErrorHandler("Please provide the all fields!", 400));
+        return next(new ErrorHandler("Vui lòng cung cấp tất cả thông tin!", 400));
       }
 
       const user = await User.findOne({ email }).select("+password");
 
       if (!user) {
-        return next(new ErrorHandler("User doesn't exists!", 400));
+        return next(new ErrorHandler("Người dùng không tồn tại!", 400));
       }
 
       const isPasswordValid = await user.comparePassword(password);
 
       if (!isPasswordValid) {
         return next(
-          new ErrorHandler("Please provide the correct information", 400)
+          new ErrorHandler("Vui lòng cung cấp thông tin chính xác!", 400)
         );
       }
 
@@ -144,7 +144,7 @@ router.get(
       const user = await User.findById(req.user.id);
 
       if (!user) {
-        return next(new ErrorHandler("User doesn't exists", 400));
+        return next(new ErrorHandler("Người dùng không tồn tại!", 400));
       }
 
       res.status(200).json({
@@ -168,7 +168,7 @@ router.get(
       });
       res.status(201).json({
         success: true,
-        message: "Log out successful!",
+        message: "Đăng xuất thành công!",
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
@@ -187,14 +187,14 @@ router.put(
       const user = await User.findOne({ email }).select("+password");
 
       if (!user) {
-        return next(new ErrorHandler("User not found", 400));
+        return next(new ErrorHandler("Không tìm thấy người dùng này!", 400));
       }
 
       const isPasswordValid = await user.comparePassword(password);
 
       if (!isPasswordValid) {
         return next(
-          new ErrorHandler("Please provide the correct information", 400)
+          new ErrorHandler("Vui lòng cung cấp thông tin chính xác!", 400)
         );
       }
 
@@ -323,12 +323,12 @@ router.put(
       );
 
       if (!isPasswordMatched) {
-        return next(new ErrorHandler("Old password is incorrect!", 400));
+        return next(new ErrorHandler("Mật khẩu cũ không đúng!", 400));
       }
 
       if (req.body.newPassword !== req.body.confirmPassword) {
         return next(
-          new ErrorHandler("Password doesn't matched with each other!", 400)
+          new ErrorHandler("Mật khẩu không khớp với nhau!", 400)
         );
       }
       user.password = req.body.newPassword;
@@ -337,7 +337,7 @@ router.put(
 
       res.status(200).json({
         success: true,
-        message: "Password updated successfully!",
+        message: "Cập nhật mật khẩu thành công!",
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));
@@ -393,7 +393,7 @@ router.delete(
 
       if (!user) {
         return next(
-          new ErrorHandler("User is not available with this id", 400)
+          new ErrorHandler("Người dùng không khả dụng với id này!", 400)
         );
       }
 
@@ -401,7 +401,7 @@ router.delete(
 
       res.status(201).json({
         success: true,
-        message: "User deleted successfully!",
+        message: "Xóa người dùng thành công!",
       });
     } catch (error) {
       return next(new ErrorHandler(error.message, 500));

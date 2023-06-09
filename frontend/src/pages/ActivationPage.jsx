@@ -37,9 +37,9 @@ const ActivationPage = () => {
       }}
     >
       {error ? (
-        <p>Your token is expired!</p>
+        <p>Token của bạn đã hết hạn!</p>
       ) : (
-        <p>Your account has been created suceessfully!</p>
+        <p>Tài khoản của bạn đã được tạo thành công!</p>
       )}
     </div>
   );
