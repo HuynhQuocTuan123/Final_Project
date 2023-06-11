@@ -230,11 +230,7 @@ const Header = ({ activeHeading }) => {
           </div>
           <div>
             <Link to="/">
-              <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-                alt=""
-                className="mt-3 cursor-pointer"
-              />
+            <h1 className="text-[33px] font-bold underline decoration-[#db3f59] hover:decoration-4">Kiana shop</h1>
             </Link>
           </div>
           <div>

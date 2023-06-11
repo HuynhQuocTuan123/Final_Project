@@ -60,8 +60,6 @@ const OrderDetails = () => {
     });
   }
 
-  console.log(data?.status);
-  console.log(data);
 
 
   return (

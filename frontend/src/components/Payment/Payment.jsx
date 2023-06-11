@@ -15,6 +15,7 @@ import axios from "axios";
 import { server } from "../../server";
 import { toast } from "react-toastify";
 import { RxCross1 } from "react-icons/rx";
+import currency from "currency-formatter";
 
 const Payment = () => {
   const [orderData, setOrderData] = useState([]);
@@ -36,7 +37,7 @@ const Payment = () => {
           {
             description: "Sunflower",
             amount: {
-              currency_code: "USD",
+              currency_code: "VND",
               value: orderData?.totalPrice,
             },
           },
@@ -164,15 +165,15 @@ const Payment = () => {
     };
 
     await axios
-    .post(`${server}/order/create-order`, order, config)
-    .then((res) => {
-      setOpen(false);
-      navigate("/order/success");
-      toast.success("Order successful!");
-      localStorage.setItem("cartItems", JSON.stringify([]));
-      localStorage.setItem("latestOrder", JSON.stringify([]));
-      window.location.reload();
-    });
+      .post(`${server}/order/create-order`, order, config)
+      .then((res) => {
+        setOpen(false);
+        navigate("/order/success");
+        toast.success("Order successful!");
+        localStorage.setItem("cartItems", JSON.stringify([]));
+        localStorage.setItem("latestOrder", JSON.stringify([]));
+        window.location.reload();
+      });
   };
 
   return (
@@ -222,7 +223,7 @@ const PaymentInfo = ({
             ) : null}
           </div>
           <h4 className="text-[18px] pl-2 font-[600] text-[#000000b1]">
-          Thanh toán bằng thẻ ghi nợ/thẻ tín dụng:
+            Thanh toán bằng thẻ ghi nợ/thẻ tín dụng:
           </h4>
         </div>
 
@@ -356,18 +357,18 @@ const PaymentInfo = ({
                       onClick={() => setOpen(false)}
                     />
                   </div>
-                    <PayPalScriptProvider
-                      options={{
-                        "client-id":
-                          "ASKKoZMziCnQPVINeRdR2yLhP7hsYw4wAYzM8WniydfEN1YXYlOHPSQy-Wg6AuaHFBZRuZuwcUNNt_NN",
-                      }}
-                    >
-                      <PayPalButtons
-                        style={{ layout: "vertical" }}
-                        onApprove={onApprove}
-                        createOrder={createOrder}
-                      />
-                    </PayPalScriptProvider>
+                  <PayPalScriptProvider
+                    options={{
+                      "client-id":
+                        "ASKKoZMziCnQPVINeRdR2yLhP7hsYw4wAYzM8WniydfEN1YXYlOHPSQy-Wg6AuaHFBZRuZuwcUNNt_NN",
+                    }}
+                  >
+                    <PayPalButtons
+                      style={{ layout: "vertical" }}
+                      onApprove={onApprove}
+                      createOrder={createOrder}
+                    />
+                  </PayPalScriptProvider>
                 </div>
               </div>
             )}
@@ -398,7 +399,7 @@ const PaymentInfo = ({
             <form className="w-full" onSubmit={cashOnDeliveryHandler}>
               <input
                 type="submit"
-                value="Confirm"
+                value="Xác nhận"
                 className={`${styles.button} !bg-[#f63b60] text-[#fff] h-[45px] rounded-[5px] cursor-pointer text-[18px] font-[600]`}
               />
             </form>
@@ -415,21 +416,42 @@ const CartData = ({ orderData }) => {
     <div className="w-full bg-[#fff] rounded-md p-5 pb-8">
       <div className="flex justify-between">
         <h3 className="text-[16px] font-[400] text-[#000000a4]">Tổng:</h3>
-        <h5 className="text-[18px] font-[600]">${orderData?.subTotalPrice}</h5>
+        <h5 className="text-[18px] font-[600]">
+          {currency.format(orderData?.subTotalPrice, {
+            code: "VND",
+          })}
+        </h5>
       </div>
       <br />
       <div className="flex justify-between">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">Phí giao hàng:</h3>
-        <h5 className="text-[18px] font-[600]">${shipping}</h5>
+        <h3 className="text-[16px] font-[400] text-[#000000a4]">
+          Phí giao hàng:
+        </h3>
+        <h5 className="text-[18px] font-[600]">
+          {currency.format(shipping, {
+            code: "VND",
+          })}
+        </h5>
       </div>
       <br />
       <div className="flex justify-between border-b pb-3">
-        <h3 className="text-[16px] font-[400] text-[#000000a4]">Sau khi áp dụng Voucher:</h3>
-        <h5 className="text-[18px] font-[600]">{orderData?.discountPrice? "$" + orderData.discountPrice : "-"}</h5>
+        <h3 className="text-[16px] font-[400] text-[#000000a4]">
+          Sau khi áp dụng Voucher:
+        </h3>
+        <h5 className="text-[18px] font-[600]">
+          {/* {orderData?.discountPrice ? "$" + orderData.discountPrice : "-"} */}
+         - {currency.format(orderData.discountPrice, {
+            code: "VND",
+          })}
+
+        </h5>
       </div>
       <h5 className="text-[18px] font-[600] text-end pt-3">
-      <h3 className="text-[16px] font-[400] text-[#000000a4]">Tổng cộng:</h3>
-        ${orderData?.totalPrice}
+        <h3 className="text-[16px] font-[400] text-[#000000a4]">Tổng cộng:</h3>
+        
+        {currency.format(orderData?.totalPrice, {
+            code: "VND",
+          })}
       </h5>
       <br />
     </div>

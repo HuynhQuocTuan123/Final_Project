@@ -28,11 +28,11 @@ const AdminDashboardMain = () => {
    const adminBalance = adminEarning?.toFixed(2);
 
   const columns = [
-    { field: "id", headerName: "Order ID", minWidth: 150, flex: 0.7 },
+    { field: "id", headerName: "ID đơn hàng", minWidth: 150, flex: 0.7 },
 
     {
       field: "status",
-      headerName: "Status",
+      headerName: "Trạng thái",
       minWidth: 130,
       flex: 0.7,
       cellClassName: (params) => {
@@ -43,7 +43,7 @@ const AdminDashboardMain = () => {
     },
     {
       field: "itemsQty",
-      headerName: "Items Qty",
+      headerName: "Số lượng",
       type: "number",
       minWidth: 130,
       flex: 0.7,
@@ -51,14 +51,14 @@ const AdminDashboardMain = () => {
 
     {
       field: "total",
-      headerName: "Total",
+      headerName: "Tổng cộng",
       type: "number",
       minWidth: 130,
       flex: 0.8,
     },
     {
       field: "createdAt",
-      headerName: "Order Date",
+      headerName: "Thời gian",
       type: "number",
       minWidth: 130,
       flex: 0.8,
@@ -117,7 +117,7 @@ const AdminDashboardMain = () => {
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{sellers && sellers.length}</h5>
             <Link to="/admin-sellers">
-              <h5 className="pt-4 pl-2 text-[#077f9c]">View Sellers</h5>
+              <h5 className="pt-4 pl-2 text-[#077f9c]">Xem danh sách cửa hàng</h5>
             </Link>
           </div>
   
@@ -136,13 +136,13 @@ const AdminDashboardMain = () => {
             </div>
             <h5 className="pt-2 pl-[36px] text-[22px] font-[500]">{adminOrders && adminOrders.length}</h5>
             <Link to="/admin-orders">
-              <h5 className="pt-4 pl-2 text-[#077f9c]">View Orders</h5>
+              <h5 className="pt-4 pl-2 text-[#077f9c]">Xem danh sách đơn hàng</h5>
             </Link>
           </div>
         </div>
   
         <br />
-        <h3 className="text-[22px] font-Poppins pb-2">Latest Orders</h3>
+        <h3 className="text-[22px] font-Poppins pb-2">Đơn hàng mới nhất</h3>
         <div className="w-full min-h-[45vh] bg-white rounded">
           <DataGrid
             rows={row}

@@ -13,11 +13,7 @@ const DashboardHeader = () => {
     <div className="w-full h-[80px] bg-white shadow sticky top-0 left-0 z-30 flex items-center justify-between px-4">
       <div>
       <Link to="/">
-              {/* <img
-                src="https://shopo.quomodothemes.website/assets/images/logo.svg"
-                alt=""
-              /> */}
-              {/* <h1>Kiana shop</h1> */}
+             
               <h1 className="text-[33px] font-bold underline decoration-[#db3f59] hover:decoration-4">Kiana shop</h1>
             </Link>
       </div>
