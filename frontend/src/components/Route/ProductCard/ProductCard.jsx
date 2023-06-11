@@ -70,7 +70,7 @@ const ProductCard = ({ data,isEvent }) => {
           <img
             src={`${backend_url}${data.images && data.images[0]}`}
             alt=""
-            className="w-full h-[170px] object-contain"
+            className="w-[auto] block mr-[auto] ml-[auto] h-[155px] object-contain rounded-[4px]"
           />
         </Link>
         <Link to={`/shop/preview/${data?.shop._id}`}>
@@ -112,7 +112,7 @@ const ProductCard = ({ data,isEvent }) => {
               className="cursor-pointer absolute right-2 top-5"
               onClick={() => removeFromWishlistHandler(data)}
               color={click ? "red" : "#333"}
-              title="Remove from wishlist"
+              title="Xóa khỏi giỏ hàng yêu thích"
             />
           ) : (
             <AiOutlineHeart
@@ -120,7 +120,7 @@ const ProductCard = ({ data,isEvent }) => {
               className="cursor-pointer absolute right-2 top-5"
               onClick={() => addToWishlistHandler(data)}
               color={click ? "red" : "#333"}
-              title="Add to wishlist"
+              title="Thêm vào giỏ hàng yêu thích"
             />
           )}
           <AiOutlineEye
@@ -128,14 +128,14 @@ const ProductCard = ({ data,isEvent }) => {
             className="cursor-pointer absolute right-2 top-14"
             onClick={() => setOpen(!open)}
             color="#333"
-            title="Quick view"
+            title="Xem nhanh"
           />
           <AiOutlineShoppingCart
             size={25}
             className="cursor-pointer absolute right-2 top-24"
             onClick={() => addToCartHandler(data._id)}
             color="#444"
-            title="Add to cart"
+            title="Thêm vào giỏ hàng"
           />
           {open ? <ProductDetailsCard setOpen={setOpen} data={data} /> : null}
         </div>

@@ -111,7 +111,7 @@ const ProductDetails = ({ data }) => {
       toast.error("Please login to create a conversation");
     }
   };
-  console.log(data)
+
 
   return (
     <div className="bg-white">
