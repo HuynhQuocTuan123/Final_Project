@@ -39,7 +39,7 @@ router.post("/create-shop", upload.single("file"), async (req, res, next) => {
       avatar: fileUrl,
       address: req.body.address,
       phoneNumber: req.body.phoneNumber,
-      zipCode: req.body.zipCode,
+     
     };
 
     const activationToken = createActivationToken(seller);
@@ -86,7 +86,7 @@ router.post(
       if (!newSeller) {
         return next(new ErrorHandler("Token không hợp lệ", 400));
       }
-      const { name, email, password, avatar, zipCode, address, phoneNumber } =
+      const { name, email, password, avatar, address, phoneNumber } =
         newSeller;
 
       let seller = await Shop.findOne({ email });
@@ -100,7 +100,7 @@ router.post(
         email,
         avatar,
         password,
-        zipCode,
+       
         address,
         phoneNumber,
       });
@@ -236,7 +236,7 @@ router.put(
   isSeller,
   catchAsyncErrors(async (req, res, next) => {
     try {
-      const { name, description, address, phoneNumber, zipCode } = req.body;
+      const { name, description, address, phoneNumber } = req.body;
 
       const shop = await Shop.findOne(req.seller._id);
 
@@ -248,7 +248,7 @@ router.put(
       shop.description = description;
       shop.address = address;
       shop.phoneNumber = phoneNumber;
-      shop.zipCode = zipCode;
+      // shop.zipCode = zipCode;
 
       await shop.save();
 

@@ -570,8 +570,8 @@ const Address = () => {
           country,
           city,
           address1,
-          address2,
-          zipCode,
+          // address2,
+          // zipCode,
           addressType
         )
       );
@@ -579,8 +579,8 @@ const Address = () => {
       setCountry("");
       setCity("");
       setAddress1("");
-      setAddress2("");
-      setZipCode(null);
+      // setAddress2("");
+      // setZipCode(null);
       setAddressType("");
     }
   };

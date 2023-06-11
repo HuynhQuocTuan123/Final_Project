@@ -33,8 +33,8 @@ const Checkout = () => {
    } else{
     const shippingAddress = {
       address1,
-      address2,
-      zipCode,
+      // address2,
+      // zipCode,
       country,
       city,
     };
@@ -117,10 +117,10 @@ const Checkout = () => {
             setUserInfo={setUserInfo}
             address1={address1}
             setAddress1={setAddress1}
-            address2={address2}
+            // address2={address2}
             setAddress2={setAddress2}
-            zipCode={zipCode}
-            setZipCode={setZipCode}
+            // zipCode={zipCode}
+            // setZipCode={setZipCode}
           />
         </div>
         <div className="w-full 800px:w-[35%] 800px:mt-0 mt-8">
@@ -155,10 +155,10 @@ const ShippingInfo = ({
   setUserInfo,
   address1,
   setAddress1,
-  address2,
-  setAddress2,
-  zipCode,
-  setZipCode,
+  // address2,
+  // setAddress2,
+  // zipCode,
+  // setZipCode,
 }) => {
   return (
     <div className="w-full 800px:w-[95%] bg-white rounded-md p-5 pb-8">
@@ -308,8 +308,8 @@ const ShippingInfo = ({
                   value={item.addressType}
                   onClick={() =>
                     setAddress1(item.address1) ||
-                    setAddress2(item.address2) ||
-                    setZipCode(item.zipCode) ||
+                    // setAddress2(item.address2) ||
+                    // setZipCode(item.zipCode) ||
                     setCountry(item.country) ||
                     setCity(item.city)
                   }

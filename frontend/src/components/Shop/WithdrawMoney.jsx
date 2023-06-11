@@ -15,11 +15,11 @@ const WithdrawMoney = () => {
   const dispatch = useDispatch();
   const { seller } = useSelector((state) => state.seller);
   const [paymentMethod, setPaymentMethod] = useState(false);
-  const [withdrawAmount, setWithdrawAmount] = useState(50);
+  const [withdrawAmount, setWithdrawAmount] = useState(50000);
   const [bankInfo, setBankInfo] = useState({
     bankName: "",
-    bankCountry: "",
-    bankSwiftCode: null,
+    // bankCountry: "",
+    // bankSwiftCode: null,
     bankAccountNumber: null,
     bankHolderName: "",
     bankAddress: "",
@@ -34,8 +34,8 @@ const WithdrawMoney = () => {
 
     const withdrawMethod = {
       bankName: bankInfo.bankName,
-      bankCountry: bankInfo.bankCountry,
-      bankSwiftCode: bankInfo.bankSwiftCode,
+      // bankCountry: bankInfo.bankCountry,
+      // bankSwiftCode: bankInfo.bankSwiftCode,
       bankAccountNumber: bankInfo.bankAccountNumber,
       bankHolderName: bankInfo.bankHolderName,
       bankAddress: bankInfo.bankAddress,
@@ -56,8 +56,8 @@ const WithdrawMoney = () => {
         dispatch(loadSeller());
         setBankInfo({
           bankName: "",
-          bankCountry: "",
-          bankSwiftCode: null,
+          // bankCountry: "",
+          // bankSwiftCode: null,
           bankAccountNumber: null,
           bankHolderName: "",
           bankAddress: "",
@@ -152,9 +152,9 @@ const WithdrawMoney = () => {
                       className={`${styles.input} mt-2`}
                     />
                   </div>
-                  <div className="pt-2">
+                  {/* <div className="pt-2">
                     <label>
-                      Bank Country <span className="text-red-500">*</span>
+                      Khu vực <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -191,11 +191,11 @@ const WithdrawMoney = () => {
                       placeholder="Enter your Bank Swift Code!"
                       className={`${styles.input} mt-2`}
                     />
-                  </div>
+                  </div> */}
 
                   <div className="pt-2">
                     <label>
-                      Bank Account Number{" "}
+                      Số tài khoản{" "}
                       <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -210,13 +210,13 @@ const WithdrawMoney = () => {
                         })
                       }
                       required
-                      placeholder="Enter your bank account number!"
+                      placeholder="Thêm số tài khoản ngân hàng!"
                       className={`${styles.input} mt-2`}
                     />
                   </div>
                   <div className="pt-2">
                     <label>
-                      Bank Holder Name <span className="text-red-500">*</span>
+                      Tên chủ thẻ <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -230,14 +230,14 @@ const WithdrawMoney = () => {
                         })
                       }
                       id=""
-                      placeholder="Enter your bank Holder name!"
+                      placeholder="Thêm tên chủ tài khoản ngân hàng!"
                       className={`${styles.input} mt-2`}
                     />
                   </div>
 
                   <div className="pt-2">
                     <label>
-                      Bank Address <span className="text-red-500">*</span>
+                      Địa chỉ đăng ký ngân hàng <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -251,7 +251,7 @@ const WithdrawMoney = () => {
                           bankAddress: e.target.value,
                         })
                       }
-                      placeholder="Enter your bank address!"
+                      placeholder="Địa chỉ chi nhánh đăng ký thẻ ngân hàng!"
                       className={`${styles.input} mt-2`}
                     />
                   </div>
@@ -260,14 +260,14 @@ const WithdrawMoney = () => {
                     type="submit"
                     className={`${styles.button} mb-3 text-white`}
                   >
-                    Add
+                    Thêm
                   </button>
                 </form>
               </div>
             ) : (
               <>
                 <h3 className="text-[22px] font-Poppins">
-                  Available Withdraw Methods:
+                  Phương thức rút tiền:
                 </h3>
 
                 {seller && seller?.withdrawMethod ? (
@@ -275,13 +275,13 @@ const WithdrawMoney = () => {
                     <div className="800px:flex w-full justify-between items-center">
                       <div className="800px:w-[50%]">
                         <h5>
-                          Account Number:{" "}
+                          Số tài khoản:{" "}
                           {"*".repeat(
                             seller?.withdrawMethod.bankAccountNumber.length - 3
                           ) +
                             seller?.withdrawMethod.bankAccountNumber.slice(-3)}
                         </h5>
-                        <h5>Bank Name: {seller?.withdrawMethod.bankName}</h5>
+                        <h5>Tên ngân hàng: {seller?.withdrawMethod.bankName}</h5>
                       </div>
                       <div className="800px:w-[50%]">
                         <AiOutlineDelete
@@ -294,6 +294,7 @@ const WithdrawMoney = () => {
                     <br />
                     <h4>Số dư khả dụng: {`${currency.format(availableBalance, { code: "VND" })}`}</h4>
                     <br />
+                    <span>Nhập số tiền cần rút: (Số dư khả dụng tối thiểu {'>'} 200.000 VND)</span>
                     <div className="800px:flex w-full items-center">
                       <input
                         type="number"
@@ -301,26 +302,35 @@ const WithdrawMoney = () => {
                         value={withdrawAmount}
                         onChange={(e) => setWithdrawAmount(e.target.value)}
                         className="800px:w-[100px] w-[full] border 800px:mr-3 p-1 rounded"
-                      />
-                      <div
+                      /><span className='mr-4'>VND </span>
+                      
+                      {/* <div
                         className={`${styles.button} !h-[42px] text-white`}
                         onClick={withdrawHandler}
                       >
-                        Withdraw
-                      </div>
+                        Rút tiền
+                      </div> */}
+                      {availableBalance && availableBalance>200000 ?(
+                         <div
+                         className={`${styles.button} !h-[42px] text-white`}
+                         onClick={withdrawHandler}
+                       >
+                         Rút tiền
+                       </div>
+                      ):( null)}
                     </div>
                   </div>
                 ) : (
                   <div>
                     <p className="text-[18px] pt-2">
-                      No Withdraw Methods available!
+                      Bạn chưa cập nhật phương thức rút tiền!
                     </p>
                     <div className="w-full flex items-center">
                       <div
                         className={`${styles.button} text-[#fff] text-[18px] mt-4`}
                         onClick={() => setPaymentMethod(true)}
                       >
-                        Add new
+                        Thêm
                       </div>
                     </div>
                   </div>
