@@ -3,10 +3,29 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { server } from "../server";
+import Lottie from "react-lottie";
+import animationData from "../Assests/animations/107043-success.json";
+import animationDatafail from "../Assests/animations/failtoken.json";
 
 const SellerActivationPage = () => {
   const { activation_token } = useParams();
   const [error, setError] = useState(false);
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const failOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationDatafail,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   useEffect(() => {
     if (activation_token) {
@@ -37,9 +56,23 @@ const SellerActivationPage = () => {
       }}
     >
       {error ? (
-        <p>Your token is expired!</p>
+         <div>
+         <Lottie options={failOptions} width={300} height={300} />
+         <h5 className="text-center mb-14 text-[25px] text-[#000000a1]">
+           Token của bạn đã hết hạn 😭
+         </h5>
+         <br />
+         <br />
+       </div>
       ) : (
-        <p>Your account has been created suceessfully!</p>
+        <div>
+        <Lottie options={defaultOptions} width={300} height={300} />
+        <h5 className="text-center mb-14 text-[25px] text-[#000000a1]">
+          Tạo tài khoản bán hàng thành công 🥳
+        </h5>
+        <br />
+        <br />
+      </div>
       )}
     </div>
   );
