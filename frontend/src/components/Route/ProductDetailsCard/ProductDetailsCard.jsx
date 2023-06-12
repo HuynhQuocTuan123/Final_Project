@@ -127,9 +127,9 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                     </div>
                   </Link>
                 </div> */}
-                <div class="flex flex-col justify-center mt-4">
+                <div class="flex flex-row justify-center mt-4">
                 
-                  <div class="relative flex flex-col md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-[#ffeee8]">
+                  <div class="relative flex flex-row md:flex-row md:space-x-5 space-y-3 md:space-y-0 rounded-xl shadow-lg p-3 max-w-xs md:max-w-3xl mx-auto border border-white bg-[#ffeee8]">
                     <div class="w-full md:w-1/3 bg-[#ffeee8] grid place-items-center">
                       <img
                         src={`${backend_url}${data?.shop?.avatar}`}
@@ -169,14 +169,14 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                       </h3>
                       </Link>
                      
-                        <div
+                        {/* <div
                           className={`${styles.button} bg-[#000] mt-4 rounded-[4px] h-11`}
                           onClick={handleMessageSubmit}
                         >
                           <span className="text-[#fff] flex items-center">
                             Gửi tin nhắn <AiOutlineMessage className="ml-1" />
                           </span>
-                        </div>
+                        </div> */}
                      
                     </div>
                   </div>

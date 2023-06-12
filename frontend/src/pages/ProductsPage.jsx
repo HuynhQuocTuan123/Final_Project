@@ -12,6 +12,8 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
 import DropDown from "../components/Layout/DropDown";
 
+import Lottie from "react-lottie";
+import animationData from "../Assests/animations/searchNotFound.json";
 
 const ProductsPage = () => {
   const [searchParams] = useSearchParams();
@@ -20,6 +22,15 @@ const ProductsPage = () => {
   const [data, setData] = useState([]);
 
   const [dropDown, setDropDown] = useState(false);
+
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   useEffect(() => {
     if (categoryData === null) {
@@ -77,9 +88,14 @@ const ProductsPage = () => {
           {data && data.map((i, index) => <ProductCard data={i} key={index} />)}
         </div>
         {data && data.length === 0 ? (
-          <h1 className="text-center w-full pb-[100px] text-[20px]">
-           Không tìm thấy sản phẩm
-          </h1>
+           <div>
+           <Lottie options={defaultOptions} width={300} height={300} />
+           <h5 className="text-center mb-14 text-[25px] text-[#000000a1]">
+             Không tìm thấy sản phẩm 🥲
+           </h5>
+           <br />
+           <br />
+         </div>
         ) : null}
       </div>
       <Footer />

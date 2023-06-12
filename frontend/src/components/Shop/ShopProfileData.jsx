@@ -8,11 +8,33 @@ import { backend_url } from "../../server";
 import Ratings from "../Products/Ratings";
 import { getAllEventsShop } from "../../redux/actions/event";
 
+import Lottie from "react-lottie";
+import animationData from "../../Assests/animations/searchNotFound.json";
+import animationData2 from "../../Assests/animations/notHaveEvent.json";
+
 const ShopProfileData = ({ isOwner }) => {
   const { products } = useSelector((state) => state.products);
   const { events } = useSelector((state) => state.events);
   const { id } = useParams();
   const dispatch = useDispatch();
+
+  
+  const defaultOptions = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  const notHaveEvent = {
+    loop: false,
+    autoplay: true,
+    animationData: animationData2,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   useEffect(() => {
     dispatch(getAllProductsShop(id));
@@ -94,9 +116,14 @@ const ShopProfileData = ({ isOwner }) => {
               ))}
           </div>
           {events && events.length === 0 && (
-            <h5 className="w-full text-center py-5 text-[18px]">
-              Cửa hàng không có sự kiện!
+            <div>
+            <Lottie options={notHaveEvent} width={300} height={300} />
+            <h5 className="text-center mb-14 text-[25px] text-[#000000a1]">
+              Chưa có sự kiện nào đang diễn ra 🥲
             </h5>
+            <br />
+            <br />
+          </div>
           )}
         </div>
       )}
@@ -122,9 +149,17 @@ const ShopProfileData = ({ isOwner }) => {
               </div>
             ))}
           {allReviews && allReviews.length === 0 && (
-            <h5 className="w-full text-center py-5 text-[18px]">
-              Chưa có đánh giá cho cửa hàng này!
-            </h5>
+            // <h5 className="w-full text-center py-5 text-[18px]">
+            //   Chưa có đánh giá cho cửa hàng này!
+            // </h5>
+            <div>
+           <Lottie options={defaultOptions} width={300} height={300} />
+           <h5 className="text-center mb-14 text-[25px] text-[#000000a1]">
+             Chưa có đánh giá cho cửa hàng này 🥲
+           </h5>
+           <br />
+           <br />
+         </div>
           )}
         </div>
       )}

@@ -268,10 +268,10 @@ const ProductDetails = ({ data }) => {
                       className="w-[60px] h-[60px] rounded-full mr-2"
                     />
                   </Link>
-                  <div className="pr-8">
+                  <div className="pr-6 pl-2">
                     <Link to={`/shop/preview/${data?.shop._id}`}>
                       <h3
-                        className={`${styles.shop_name} pb-1 pt-1 !text-red-700 !text-xl font-bold`}
+                        className={`${styles.shop_name} pb-1 pt-1 !text-red-700 !text-xl font-[600]`}
                       >
                         {data.shop.name}
                       </h3>
@@ -337,7 +337,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(2)}
           >
-            Đánh giá sản phẩm
+            Đánh giá 
           </h5>
           {active === 2 ? (
             <div className={`${styles.active_indicator}`} />
@@ -350,7 +350,7 @@ const ProductDetailsInfo = ({
             }
             onClick={() => setActive(3)}
           >
-            Thông tin người bán
+           Cửa hàng
           </h5>
           {active === 3 ? (
             <div className={`${styles.active_indicator}`} />

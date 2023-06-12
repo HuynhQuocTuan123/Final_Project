@@ -7,12 +7,14 @@ import Loader from "../Layout/Loader";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllProductsShop } from "../../redux/actions/product";
 
+
 const ShopInfo = ({ isOwner }) => {
   const [data,setData] = useState({});
   const {products} = useSelector((state) => state.products);
   const [isLoading,setIsLoading] = useState(false);
   const {id} = useParams();
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(getAllProductsShop(id));
@@ -57,7 +59,7 @@ const ShopInfo = ({ isOwner }) => {
             className="w-[150px] h-[150px] object-cover rounded-full"
           />
         </div>
-        <h3 className="text-center py-2 text-[20px]">{data.name}</h3>
+        <h3 className="text-center text-[#535] font-[700] py-2 text-[25px]">{data.name}</h3>
         <p className="text-[16px] text-[#000000a6] p-[10px] flex items-center">
           {data.description}
         </p>
