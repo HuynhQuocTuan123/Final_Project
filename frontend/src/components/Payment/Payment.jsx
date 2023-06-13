@@ -212,7 +212,7 @@ const PaymentInfo = ({
   return (
     <div className="w-full 800px:w-[95%] bg-[#fff] rounded-md p-5 pb-8">
       {/* select buttons */}
-      <div>
+      {/* <div>
         <div className="flex w-full pb-5 border-b mb-2">
           <div
             className="w-[25px] h-[25px] rounded-full bg-transparent border-[3px] border-[#1d1a1ab4] relative flex items-center justify-center"
@@ -227,7 +227,7 @@ const PaymentInfo = ({
           </h4>
         </div>
 
-        {/* pay with card */}
+        
         {select === 1 ? (
           <div className="w-full flex border-b">
             <form className="w-full" onSubmit={paymentHandler}>
@@ -319,7 +319,7 @@ const PaymentInfo = ({
             </form>
           </div>
         ) : null}
-      </div>
+      </div> */}
 
       <br />
       {/* paypal payment */}

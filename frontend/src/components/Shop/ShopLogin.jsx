@@ -110,14 +110,14 @@ const ShopLogin = () => {
                   Lưu đăng nhập
                 </label>
               </div>
-              <div className="text-sm">
+              {/* <div className="text-sm">
                 <a
                   href=".forgot-password"
                   className="font-medium text-blue-600 hover:text-blue-500"
                 >
                   Quên mật khẩu?
                 </a>
-              </div>
+              </div> */}
             </div>
             <div>
               <button
