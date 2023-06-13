@@ -1,23 +1,20 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../../styles/styles";
-import { categoriesData, productData } from "../../static/data";
 import {
   AiOutlineHeart,
   AiOutlineSearch,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
-import { BiMenuAltLeft } from "react-icons/bi";
+import { IoIosArrowForward } from "react-icons/io";
 import { CgProfile } from "react-icons/cg";
-import DropDown from "./DropDown";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
 import { backend_url } from "../../server";
 import Cart from "../cart/Cart";
 import Wishlist from "../Wishlist/Wishlist";
-import { RxCross1 } from "react-icons/rx";
-import { TbAdjustmentsHorizontal,TbArrowBarLeft } from "react-icons/tb";
+
+import { TbAdjustmentsHorizontal, TbArrowBarLeft } from "react-icons/tb";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -28,7 +25,6 @@ const Header = ({ activeHeading }) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
-  const [dropDown, setDropDown] = useState(false);
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
@@ -64,7 +60,9 @@ const Header = ({ activeHeading }) => {
                 alt=""
               /> */}
               {/* <h1>Kiana shop</h1> */}
-              <h1 className="text-[33px] font-bold underline decoration-[#db3f59] hover:decoration-4">Kiana shop</h1>
+              <h1 className="text-[33px] font-bold underline decoration-[#db3f59] hover:decoration-4">
+                Kiana shop
+              </h1>
             </Link>
           </div>
           {/* search box */}
@@ -101,10 +99,12 @@ const Header = ({ activeHeading }) => {
             ) : null}
           </div>
           <div className="flex items-center">
-            {isSeller ? (null):(  <span className="font-medium mt-1 pr-2">
-              Đăng nhập vào cửa hàng
-            </span>)}
-          
+            {isSeller ? null : (
+              <span className="font-medium mt-1 pr-2">
+                Đăng nhập vào cửa hàng
+              </span>
+            )}
+
             <div className={`${styles.button}`}>
               <Link to={`${isSeller ? "/dashboard" : "/shop-login"}`}>
                 <h1 className="text-[#fff] flex items-center">
@@ -133,28 +133,6 @@ const Header = ({ activeHeading }) => {
         <div
           className={`${styles.section} relative ${styles.noramlFlex} justify-between`}
         >
-          {/* categories */}
-          {/* <div onClick={() => setDropDown(!dropDown)}>
-            <div className="relative h-[60px] mt-[10px] w-[270px] hidden 1000px:block">
-              <BiMenuAltLeft size={30} className="absolute top-3 left-2" />
-              <button
-                className={`h-[100%] w-full flex justify-between items-center pl-10 bg-white font-sans text-lg font-[500] select-none rounded-t-md`}
-              >
-                Danh mục
-              </button>
-              <IoIosArrowDown
-                size={20}
-                className="absolute right-2 top-4 cursor-pointer"
-                onClick={() => setDropDown(!dropDown)}
-              />
-              {dropDown ? (
-                <DropDown
-                  categoriesData={categoriesData}
-                  setDropDown={setDropDown}
-                />
-              ) : null}
-            </div>
-          </div> */}
           {/* navitems */}
           <div className={`${styles.noramlFlex}`}>
             <Navbar active={activeHeading} />
@@ -231,7 +209,9 @@ const Header = ({ activeHeading }) => {
           </div>
           <div>
             <Link to="/">
-            <h1 className="text-[33px] font-bold underline decoration-[#db3f59] hover:decoration-4">Kiana shop</h1>
+              <h1 className="text-[33px] font-bold underline decoration-[#db3f59] hover:decoration-4">
+                Kiana shop
+              </h1>
             </Link>
           </div>
           <div>
@@ -312,8 +292,7 @@ const Header = ({ activeHeading }) => {
               <div className={`${styles.button} ml-4 !rounded-[4px]`}>
                 <Link to="/shop-create">
                   <h1 className="text-[#fff] flex items-center">
-                    Seller {" "}
-                    <IoIosArrowForward className="ml-1" />
+                    Seller <IoIosArrowForward className="ml-1" />
                   </h1>
                 </Link>
               </div>
@@ -344,7 +323,7 @@ const Header = ({ activeHeading }) => {
                       to="/sign-up"
                       className="text-[18px] text-[#000000b7]"
                     >
-Đăng ký
+                      Đăng ký
                     </Link>
                   </>
                 )}

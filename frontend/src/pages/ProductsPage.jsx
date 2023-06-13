@@ -9,7 +9,7 @@ import styles from "../styles/styles";
 
 import { categoriesData} from"../static/data";
 import { BiMenuAltLeft } from "react-icons/bi";
-import { IoIosArrowDown, IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import DropDown from "../components/Layout/DropDown";
 
 import Lottie from "react-lottie";

@@ -614,20 +614,17 @@ export const navItems = [
   
   export const footercompanyLinks = [
     {
-      name: "Game & Video",
+      name: "Music and Gaming",
     },
     {
-      name: "Phone &Tablets",
+      name: "Điện thoại và máy tính bảng",
     },
     {
-      name: "Computers & Laptop",
+      name: "Laptop-máy tính",
     },
     {
-      name: "Sport Watches",
-    },
-    {
-      name: "Events",
-    },
+      name: "Thể thao và du lịch",
+    }
   ];
   
   export const footerSupportLinks = [

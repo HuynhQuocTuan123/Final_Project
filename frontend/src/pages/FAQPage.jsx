@@ -36,7 +36,7 @@ const Faq = () => {
             onClick={() => toggleTab(2)}
           >
             <span className="text-lg font-medium text-gray-900">
-              What is your return policy?
+              Video hướng dẫn setup Website?
             </span>
             {activeTab === 2 ? (
               <svg
@@ -71,10 +71,7 @@ const Faq = () => {
           {activeTab === 2 && (
             <div className="mt-4">
               <p className="text-base text-gray-500">
-                If you're not satisfied with your purchase, we accept returns
-                within 30 days of delivery. To initiate a return, please email
-                us at support@myecommercestore.com with your order number and a
-                brief explanation of why you're returning the item.
+                Mình sẽ sớm cập nhật sớm nhất có thể. Vui lòng chờ thêm 1 khoảng thời gian nữa thôi nhé.
               </p>
             </div>
           )}
@@ -86,7 +83,7 @@ const Faq = () => {
             onClick={() => toggleTab(3)}
           >
             <span className="text-lg font-medium text-gray-900">
-              How do I track my order?
+             Tôi có thể liên hệ với bạn bằng cách nào?
             </span>
             {activeTab === 3 ? (
               <svg
@@ -121,15 +118,13 @@ const Faq = () => {
           {activeTab === 3 && (
             <div className="mt-4">
               <p className="text-base text-gray-500">
-                You can track your order by clicking the tracking link in your
-                shipping confirmation email, or by logging into your account on
-                our website and viewing the order details.
+                Bạn có thể liên hệ với tôi qua Email:<b>Army24062000@gmail</b> nếu có vướng mắc hay điều gì muốn nói nhé.
               </p>
             </div>
           )}
         </div>
 
-        <div className="border-b border-gray-200 pb-4">
+        {/* <div className="border-b border-gray-200 pb-4">
           <button
             className="flex items-center justify-between w-full"
             onClick={() => toggleTab(4)}
@@ -321,7 +316,7 @@ const Faq = () => {
               </p>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </div>
   );
